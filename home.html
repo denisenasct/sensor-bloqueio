@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        overflow-x: hidden;
+      }
+
+      .header {
+        background-color: #1f1f1f;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-logo img {
+        height: 50px;
+      }
+
+      .header-logo img {
+        height: 50px;
+      }
+
+      .cascading-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .cascading-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .cascading-menu a:hover {
+        color: #ff6600;
+      }
+
+      .hero {
+        height: 100vh;
+        background-image: url("imagens/sd.png");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .hero h1 {
+        font-size: 3em;
+        margin: 0;
+      }
+
+      .hero p {
+        font-size: 1.5em;
+        margin: 20px 0;
+      }
+
+      .hero button {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        color: #fff;
+        background: #ff6600;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .hero button:hover {
+        background: #e55b00;
+      }
+
+      .section {
+        padding: 50px 20px;
+        text-align: center;
+        background: #fff;
+      }
+
+      .section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .section p {
+        font-size: 1.2em;
+        color: #666;
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+      }
+
+      footer {
+        background-color: #1f1f1f;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      footer a {
+        color: #ff6600;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo">
+        <img src="imagens/cesar.png" alt="Logo da Faculdade" />
+      </div>
+      <nav class="cascading-menu">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="projeto.html">O Projeto</a></li>
+          <li><a href="autores.html">Autores</a></li>
+          <li><a href="componentes.html">Componentes e Suprimentos</a></li>
+          <li><a href="tutorial.html">Passo a Passo</a></li>
+          <li><a href="codigo.html">Código</a></li>
+          <li><a href="licoes.html">Problemas/Lições Aprendidas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Bem-vindo ao Nosso Projeto</h1>
+      <p>Explore soluções inovadoras em Arduino para o futuro</p>
+      <button onclick="scrollToSection()">Saiba Mais</button>
+      <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>Sobre o Projeto</h2>
+      <p>
+        Este projeto combina tecnologia e inovação, com as lições aprendidas na
+        disciplina de Sistemas Digitais <br />
+        para oferecer as melhores soluções em Arduino no mercado.
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      function scrollToSection() {
+        document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>

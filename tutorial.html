@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Passo a Passo e Aplicativos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      .header {
+        background-color: #1f1f1f;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-logo img {
+        height: 50px;
+      }
+
+      .cascading-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .cascading-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .cascading-menu a:hover {
+        color: #ff6600;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .container h2 {
+        color: #ff6600;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .passo {
+        margin: 20px 0;
+      }
+
+      .passo img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .download-button {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .download-button a {
+        color: #fff;
+        text-decoration: none;
+        background-color: #ff6600;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        display: inline-block;
+      }
+
+      .download-button a:hover {
+        background-color: #e05500;
+      }
+
+      .video-tutorial {
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .video-tutorial iframe {
+        width: 100%;
+        max-width: 560px;
+        height: 315px;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .apps-section {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        text-align: center;
+      }
+
+      .apps-section div {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .apps-section img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+      }
+
+      footer {
+        background-color: #1f1f1f;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      footer a {
+        color: #ff6600;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo">
+        <img src="imagens/cesar.png" alt="Logo César" />
+      </div>
+      <nav class="cascading-menu">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="projeto.html">O Projeto</a></li>
+          <li><a href="autores.html">Autores</a></li>
+          <li><a href="componentes.html">Componentes e Suprimentos</a></li>
+          <li><a href="tutorial.html">Passo a Passo</a></li>
+          <li><a href="codigo.html">Código</a></li>
+          <li><a href="licoes.html">Lições Aprendidas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2>Passo a Passo para Montagem do Projeto</h2>
+
+      <div class="passo">
+        <h3>1. Configuração do Arduino</h3>
+        <p>
+          Conecte o Arduino ao computador e faça o upload do código fornecido no
+          repositório.
+        </p>
+        <img src="imagens/passo1.jpg" alt="Configuração do Arduino" />
+      </div>
+
+      <div class="passo">
+        <h3>2. Montagem do Sensor Ultrassônico</h3>
+        <p>
+          Fixe o sensor ultrassônico na protoboard e conecte os cabos conforme o
+          esquema do projeto.
+        </p>
+        <img src="imagens/passo2.jpg" alt="Montagem do Sensor" />
+      </div>
+
+      <div class="passo">
+        <h3>3. Conexão com o Computador</h3>
+        <p>
+          Conecte o Arduino ao computador via cabo USB e abra o software de
+          monitoramento.
+        </p>
+        <img src="imagens/passo3.jpg" alt="Conexão com o Computador" />
+      </div>
+
+      <div class="passo">
+        <h3>4. Teste do Sistema</h3>
+        <p>
+          Realize testes para verificar o funcionamento do sensor e do bloqueio
+          de tela.
+        </p>
+        <img src="imagens/passo4.jpg" alt="Teste do Sistema" />
+      </div>
+
+      <div class="download-button">
+        <a href="arquivos/projeto_completo.zip" download
+          >Baixar Projeto Completo</a
+        >
+      </div>
+
+      <div class="video-tutorial">
+        <h3>Vídeo Tutorial</h3>
+        <iframe
+          src="https://www.youtube.com/embed/EXEMPLO"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="apps-section">
+        <h2>Aplicativos e Plataformas Utilizados</h2>
+        <div>
+          <img src="imagens/arduino-logo.jpg" alt="Arduino IDE" />
+          <p><strong>Arduino IDE</strong></p>
+          <p>Software para programação e upload do código no Arduino.</p>
+        </div>
+        <div>
+          <img src="imagens/python-logo.png" alt="Python" />
+          <p><strong>Python</strong></p>
+          <p>Script para integração com o sistema operacional do computador.</p>
+        </div>
+        <div>
+          <img src="imagens/github-logo.png" alt="GitHub" />
+          <p><strong>GitHub</strong></p>
+          <p>Repositório para hospedagem e compartilhamento do código.</p>
+        </div>
+        <div>
+          <img src="imagens/protoboard-logo.png" alt="Protoboard" />
+          <p><strong>Protoboard</strong></p>
+          <p>Plataforma para montagem do circuito eletrônico.</p>
+        </div>
+        <div>
+          <img src="imagens/paint-logo.jpg" alt="Paint" />
+          <p><strong>Paint</strong></p>
+          <p>Ferramenta para ajustes e criação de esquemas simples.</p>
+        </div>
+        <div>
+          <img src="imagens/vscode-logo.jpg" alt="VS Code" />
+          <p><strong>VS Code</strong></p>
+          <p>
+            Editor de código usado para o desenvolvimento do projeto. (Versão:
+            1.95.3)
+          </p>
+        </div>
+        <div>
+          <img src="imagens/youtube-logo.jpg" alt="YouTube" />
+          <p><strong>YouTube</strong></p>
+          <p>Plataforma para vídeos explicativos e tutoriais.</p>
+        </div>
+        <div>
+          <img src="imagens/js-logo.png" alt="JavaScript" />
+          <p><strong>JavaScript</strong></p>
+          <p>
+            Linguagem utilizada para adicionar e melhorar a experiência visual
+            do site.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>

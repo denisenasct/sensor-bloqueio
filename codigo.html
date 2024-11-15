@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Código</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      .header {
+        background-color: #1f1f1f;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-logo img {
+        height: 50px;
+      }
+
+      .cascading-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .cascading-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .cascading-menu a:hover {
+        color: #ff6600;
+      }
+
+      .codigo-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .codigo-container h2 {
+        color: #ff6600;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      pre {
+        background-color: #1f1f1f;
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+
+      .codigo-explicacao {
+        margin-top: 20px;
+      }
+
+      .codigo-explicacao h3 {
+        color: #444;
+      }
+
+      .codigo-explicacao p {
+        margin: 10px 0;
+        line-height: 1.6;
+      }
+
+      .github-link {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .github-link a {
+        color: #fff;
+        text-decoration: none;
+        background-color: #ff6600;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .github-link a:hover {
+        background-color: #e05500;
+      }
+
+      footer {
+        background-color: #1f1f1f;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      footer a {
+        color: #ff6600;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo">
+        <img src="imagens/cesar.png" alt="Logo César" />
+      </div>
+      <nav class="cascading-menu">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="projeto.html">O Projeto</a></li>
+          <li><a href="autores.html">Autores</a></li>
+          <li><a href="componentes.html">Componentes e Suprimentos</a></li>
+          <li><a href="tutorial.html">Passo a Passo</a></li>
+          <li><a href="codigo.html">Código</a></li>
+          <li><a href="licoes.html">Lições Aprendidas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="codigo-container">
+      <h2>Trechos do Código</h2>
+
+      <h3>Código em C++ para o Arduino</h3>
+      <pre>
+        <code>
+const int trigPin = 5; // Emite o sinal sonoro
+const int echoPin = 4; // Capta as ondas sonoras refletidas
+int enviarpy;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, LOW);
+
+  long duracao = pulseIn(echoPin, HIGH);
+  float distancia = duracao * 0.034 / 2;
+
+  if (distancia > 80) {
+    enviarpy = 1;
+    Serial.print(enviarpy);
+  } else {
+    enviarpy = 0;
+    Serial.print(enviarpy);
+  }
+
+  Serial.print("Distância: ");
+  Serial.print(distancia);
+  Serial.println("cm.");
+
+  delay(500);
+}
+        </code>
+      </pre>
+
+      <div class="codigo-explicacao">
+        <h3>Partes Importantes do Código C++</h3>
+        <p>
+          <strong>Setup:</strong> Configura os pinos do sensor e inicia a
+          comunicação serial.
+        </p>
+        <p>
+          <strong>Loop:</strong> Calcula a distância e envia comandos ao
+          computador.
+        </p>
+      </div>
+
+      <h3>Código em Python para Comunicação com o Computador</h3>
+      <pre>
+        <code>
+import serial
+import os
+import time
+
+# Configuração da porta serial
+arduino = serial.Serial('COM3', 9600)
+time.sleep(2)  # Aguarda inicialização
+
+while True:
+    data = arduino.readline().decode('utf-8').strip()
+    if data == '1':
+        print("Usuário ausente, bloqueando tela...")
+        os.system('rundll32.exe user32.dll, LockWorkStation')
+    elif data == '0':
+        print("Usuário presente.")
+    time.sleep(1)
+        </code>
+      </pre>
+
+      <div class="codigo-explicacao">
+        <h3>Partes Importantes do Código Python</h3>
+        <p>
+          <strong>Serial:</strong> Configura a comunicação com o Arduino via
+          porta serial.
+        </p>
+        <p>
+          <strong>Bloqueio:</strong> Bloqueia a tela do computador ao detectar
+          ausência do usuário.
+        </p>
+      </div>
+
+      <div class="github-link">
+        <a href="https://github.com/AstleBia/SensorBloqueio" target="_blank">
+          Acesse o Código Completo no GitHub
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>

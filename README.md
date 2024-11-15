@@ -1,2 +1,2 @@
-# sensor-bloqueio
-Projeto de Sensor de Bloqueio
+# SensorBloqueio
+Projeto para as cadeiras de Sistemas Digitais e Introdução à Computação

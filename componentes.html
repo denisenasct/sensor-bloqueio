@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Componentes e Suprimentos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      .header {
+        background-color: #1f1f1f;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-logo img {
+        height: 50px;
+      }
+
+      .main-image {
+        background-image: url("imagens/equipe.arduino.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+      }
+
+      .cascading-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .cascading-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .cascading-menu a:hover {
+        color: #ff6600;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .titulo-pagina {
+        text-align: center;
+        color: #ff6600;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #444;
+        margin-top: 20px;
+      }
+
+      p {
+        margin: 10px 0;
+        line-height: 1.6;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.5s ease;
+      }
+
+      .icon {
+        margin-right: 10px;
+        color: #ff6600;
+      }
+
+      .box-arduino {
+        text-align: center;
+        margin: 20px 0;
+        position: relative;
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: all 1s ease;
+      }
+
+      .box-arduino img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+
+      .box-arduino h2 {
+        color: #444;
+      }
+
+      .box-arduino .button-info {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #ff6600;
+        color: #fff;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .box-arduino .button-info:hover {
+        background-color: #e65c00;
+      }
+
+      
+      footer {
+        background-color: #1f1f1f;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      footer a {
+        color: #ff6600;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo">
+        <img src="imagens/logo.png" alt="Logo da Empresa" />
+      </div>
+      <nav class="cascading-menu">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="projeto.html">O Projeto</a></li>
+          <li><a href="autores.html">Autores</a></li>
+          <li><a href="componentes.html">Componentes e Suprimentos</a></li>
+          <li><a href="tutorial.html">Passo a Passo</a></li>
+          <li><a href="codigo.html">Código</a></li>
+          <li><a href="licoes.html">Problemas/Lições Aprendidas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <h1 class="titulo-pagina">
+      <b>Componentes e Suprimentos</b>
+    </h1>
+
+    <main>
+      <div class="box-arduino">
+        <img
+          src="imagens/imagem-arduino.jpg"
+          alt="foto-arduino"
+          class="foto-arduino"
+        />
+        <h2 class="comp-arduino">Arduino Uno</h2>
+        <button class="button-info">Clique aqui para saber mais</button>
+        <p>
+          O Arduino Uno é o microcontrolador central do projeto. Ele processa os
+          dados recebidos do sensor ultrassônico, interpreta as informações e
+          toma decisões. Nesse caso, ele está programado para verificar a
+          distância medida pelo sensor e, se o usuário se afastar além de uma
+          distância específica, o Arduino envia um sinal ao computador para
+          deslogar o usuário. A programação para esse comportamento é carregada
+          no Arduino Uno, que controla toda a lógica de funcionamento do
+          dispositivo.
+        </p>
+      </div>
+
+      <div class="box-arduino">
+        <img src="imagens/sensor.jpg" alt="foto-sensor" class="foto-sensor" />
+        <h2>Sensor Ultrassônico</h2>
+        <button class="button-info">Clique aqui para saber mais</button>
+        <p>
+          O sensor ultrassônico mede a distância entre o usuário e o
+          dispositivo. Ele emite ondas ultrassônicas que se refletem no corpo do
+          usuário, retornando ao sensor, que calcula o tempo que as ondas levam
+          para ir e voltar. Com base nesse tempo, o Arduino consegue calcular a
+          distância entre o dispositivo e o usuário. Se a distância ultrapassar
+          um limite pré-definido, o Arduino identifica que o usuário se afastou
+          e inicia o processo de deslogar o Windows.
+        </p>
+      </div>
+
+      <div class="box-arduino">
+        <img
+          src="imagens/resistores.jpg"
+          alt="foto-resistores"
+          class="foto-resistores"
+        />
+        <h2>Resistores</h2>
+        <button class="button-info">Clique aqui para saber mais</button>
+        <p>
+          Os resistores são usados para proteger os componentes eletrônicos de
+          picos de corrente e para garantir o funcionamento adequado do
+          circuito. Eles limitam a quantidade de corrente que passa pelo sensor
+          e pelo Arduino, prevenindo possíveis danos causados por correntes
+          excessivas. Geralmente, os resistores são necessários em circuitos
+          onde os sinais digitais precisam ser controlados ou onde a alimentação
+          precisa ser ajustada para não sobrecarregar os componentes.
+        </p>
+      </div>
+
+      <div class="box-arduino">
+        <img
+          src="imagens/cabos-arduino.jpg"
+          alt="foto-cabos"
+          class="foto-cabos"
+        />
+        <h2>Cabos de Conexão</h2>
+        <button class="button-info">Clique aqui para saber mais</button>
+        <p>
+          Os cabos de conexão fazem a ligação física entre os componentes, como
+          entre o sensor ultrassônico e o Arduino, e o Arduino e o computador
+          (via USB ou outro método de conexão). Esses cabos são responsáveis por
+          transmitir os sinais elétricos que permitem o funcionamento integrado
+          do dispositivo. Cada cabo específico ajuda a estabelecer as conexões
+          de alimentação (GND e VCC) e os sinais de entrada e saída (por
+          exemplo, os sinais de medição do sensor).
+        </p>
+      </div>
+    </main>
+
+    
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".button-info");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const parent = button.closest(".box-arduino");
+            const paragraph = parent.querySelector("p");
+
+            if (paragraph) {
+              paragraph.style.opacity = "1";
+              paragraph.style.transform = "translateX(0)";
+            }
+          });
+        });
+
+        const components = document.querySelectorAll(".box-arduino");
+        components.forEach((component) => {
+          component.style.opacity = "1";
+          component.style.transform = "translateY(0)";
+        });
+      });
+    </script>
+
+</main>
+  
+<footer>
+  <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
+
+  

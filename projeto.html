@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Projeto</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      .header {
+        background-color: #1f1f1f;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-logo img {
+        height: 50px;
+      }
+
+      .cascading-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .cascading-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .cascading-menu a:hover {
+        color: #ff6600;
+      }
+
+      .main-image {
+        background-image: url("imagens/bloqueio.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 80vh;
+        width: 100%;
+      }
+
+      .descricao-projeto {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .descricao-projeto h2 {
+        color: #ff6600;
+        margin-bottom: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .descricao-projeto h3 {
+        color: #444;
+        margin-top: 20px;
+      }
+
+      .descricao-projeto p {
+        margin: 10px 0;
+        line-height: 1.6;
+      }
+
+      .descricao-projeto ul {
+        list-style: disc inside;
+        margin: 10px 0;
+        padding: 0 20px;
+      }
+
+      .descricao-projeto ul li {
+        margin: 5px 0;
+      }
+
+      .descricao-projeto img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .descricao-projeto .download-button {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .descricao-projeto .download-button a {
+        color: #fff;
+        text-decoration: none;
+        background-color: #ff6600;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        display: inline-block;
+      }
+
+      .descricao-projeto .download-button a:hover {
+        background-color: #e05500;
+      }
+
+      .descricao-projeto .esquema-descricao {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #ddd;
+      }
+
+      footer {
+        background-color: #1f1f1f;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      footer a {
+        color: #ff6600;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .button-aligned {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .button-aligned .download-button a {
+        margin-left: 10px;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo">
+        <img src="imagens/cesar.png" alt="Logo César" />
+      </div>
+      <nav class="cascading-menu">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="projeto.html">O Projeto</a></li>
+          <li><a href="autores.html">Autores</a></li>
+          <li><a href="componentes.html">Componentes e Suprimentos</a></li>
+          <li><a href="tutorial.html">Passo a Passo</a></li>
+          <li><a href="codigo.html">Código</a></li>
+          <li><a href="licoes.html">Problemas/Lições Aprendidas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="main-image"></div>
+
+    <div class="descricao-projeto">
+      <div class="button-aligned">
+        <h2>Projeto Bloqueio de Tela Windows</h2>
+        <div class="download-button">
+          <a href="arquivos/projeto_completo.zip" download>Baixar Projeto</a>
+        </div>
+      </div>
+
+      <h3>Descrição do Projeto</h3>
+
+      <h3>Motivação</h3>
+      <p>
+        Em muitas empresas, existe uma política de segurança que exige que os
+        profissionais bloqueiem suas telas ao se afastarem de seus computadores.
+        Isso evita que terceiros acessem informações privadas e utilizem
+        indevidamente contas que não lhes pertencem.
+      </p>
+
+      <h3>Objetivo</h3>
+      <p>
+        O objetivo deste projeto é desenvolver um sistema que detecte
+        automaticamente quando o usuário se afasta do computador e, ao alcançar
+        uma distância definida pelo sistema, bloqueie a tela usando o comando
+        Win + L. Isso será feito com o auxílio de um sensor ultrassônico e uma
+        placa Arduino, promovendo segurança e facilitando o cumprimento das
+        políticas corporativas.
+      </p>
+
+      <h3>Contextualização</h3>
+      <p>
+        Este projeto foi desenvolvido pelos alunos do primeiro período de
+        Sistemas de Informação, na disciplina de Introdução à Computação e
+        Sistemas Digitais. Utilizamos uma placa Arduino, um sensor ultrassônico
+        e uma protoboard para criar um dispositivo que monitora a presença do
+        usuário. Este sistema é ideal para aplicações em ambientes empresariais,
+        onde a segurança de informações e contas de usuário é essencial.
+      </p>
+
+      <h3>Palavras-chave</h3>
+      <ul>
+        <li>Segurança</li>
+        <li>Praticidade</li>
+        <li>Automação</li>
+        <li>Conforto</li>
+      </ul>
+
+      <h3>Esquema do Projeto</h3>
+      <img src="imagens/esquema.png" alt="Esquema do Projeto" />
+
+      <div class="esquema-descricao">
+        <h3>Descrição do Esquema</h3>
+        <p><strong>Sensor Ultrassônico:</strong></p>
+        <ul>
+          <li>Emite ondas ultrassônicas para medir a distância do usuário.</li>
+          <li>Retorna os dados de distância ao Arduino.</li>
+        </ul>
+        <p><strong>Arduino:</strong></p>
+        <ul>
+          <li>Processa os dados recebidos do sensor.</li>
+          <li>Envia comandos ao computador via USB.</li>
+        </ul>
+        <p><strong>Computador:</strong></p>
+        <ul>
+          <li>
+            Executa o script Python para monitorar os comandos do Arduino.
+          </li>
+          <li>Bloqueia a tela se a distância atingir o limite especificado.</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>
