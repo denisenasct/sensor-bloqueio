@@ -4,132 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autores</title>
+    <link rel="stylesheet" href="./css/autores.css" />
+    <link rel="stylesheet" href="./css/global.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-        color: #333;
-      }
-
-      .header {
-        background-color: #1f1f1f;
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .header-logo img {
-        height: 50px;
-      }
-
-     .main-image {
-        background-image: url("equipe.arduino.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 90vh;
-        width: 100%;
-      }
-      .cascading-menu ul {
-        list-style: none;
-        display: flex;
-        gap: 15px;
-        margin: 0;
-        padding: 0;
-      }
-
-      .cascading-menu a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s;
-      }
-
-      .cascading-menu a:hover {
-        color: #ff6600;
-      }
-
-      .team-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-        background: #fff;
-        max-width: 1200px;
-        margin: 20px auto;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .author-section {
-        text-align: center;
-        width: 250px;
-        background: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-      }
-
-      .author-photo {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 10px;
-      }
-
-      .author-name {
-        font-size: 1.2em;
-        color: #333;
-        margin-bottom: 10px;
-      }
-
-      .social-links a {
-        margin: 0 5px;
-        color: #333;
-        transition: color 0.3s;
-      }
-
-      .social-links a:hover {
-        color: #ff6600;
-      }
-
-      .titulo-pagina {
-        text-align: center;
-        color: #ff6600;
-        margin: 20px 0;
-      }
-
-      footer {
-        background-color: #1f1f1f;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-        margin-top: 20px;
-      }
-
-      footer a {
-        color: #ff6600;
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
-    </style>
   </head>
-  <main>
+  <body>
     <header class="header">
       <div class="header-logo">
-        <img src="cesar.png" alt="Logo da Empresa" />
+        <img src="./img/cesar.png" alt="Logo da Empresa" />
       </div>
       <nav class="cascading-menu">
         <ul>
@@ -144,85 +29,74 @@
       </nav>
     </header>
 
-    <h1 class="titulo-pagina">Nosso Time</h1>
+    <main>
+      <h1 class="titulo-pagina">Nosso Time</h1>
 
-    <div class="team-container">
-      <div class="author-section">
-        <img
-          src="imgtest.avif"
-          alt="Foto do autor"
-          class="author-photo"
-        />
-        <h3 class="author-name">Caio Marques Emerenciano</h3>
-        <div class="social-links">
-          <a
-            href="https://www.linkedin.com/in/caioemerenciano/"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://github.com/caioduck"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
+      <div class="team-container">
+        <div class="author-section">
+          <img src="./img/imgtest.avif" alt="Foto do autor" class="author-photo" />
+          <h3 class="author-name">Caio Marques Emerenciano</h3>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/caioemerenciano/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/caioduck"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="author-section">
+          <img src="./img/MatheusGuimaraes.jpeg" alt="Foto do autor" class="author-photo" />
+          <h3 class="author-name">Mateus José Galvão de Melo Guimarães</h3>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/mateus-guimar%C3%A3es-438513306/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/MateusGGuimaraes"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="author-section">
+          <img src="./img/DeniseTavares.jpeg" alt="Foto do autor" class="author-photo" />
+          <h3 class="author-name">Denise Tavares do Nascimento</h3>
+          <div class="social-links">
+            <a href="" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/denisenasct"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
         </div>
       </div>
+    </main>
 
-      <div class="author-section">
-        <img
-          src="MatheusGuimaraes.jpeg"
-          alt="Foto do autor"
-          class="author-photo"
-        />
-        <h3 class="author-name">Mateus José Galvão de Melo Guimarães</h3>
-        <div class="social-links">
-          <a
-            href="https://www.linkedin.com/in/mateus-guimar%C3%A3es-438513306/"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://github.com/MateusGGuimaraes"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="author-section">
-        <img
-          src="DeniseTavares.jpeg"
-          alt="Foto do autor"
-          class="author-photo"
-        />
-        <h3 class="author-name">Denise Tavares do Nascimento</h3>
-        <div class="social-links">
-          <a href="" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://github.com/denisenasct"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-  
     <footer>
       <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
     </footer>
   </body>
 </html>
-</html>
+
