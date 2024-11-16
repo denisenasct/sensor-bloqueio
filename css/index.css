@@ -1,20 +1,4 @@
-.header {
-        background-color: #1f1f1f;
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .header-logo img {
-        height: 50px;
-      }
-
-      .header-logo img {
-        height: 50px;
-      }
-
-         .main-image {
+     .main-image {
         background-image: url("../img/sd.png");
         background-size: cover;
         background-repeat: no-repeat;
