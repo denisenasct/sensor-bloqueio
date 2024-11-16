@@ -1,0 +1,81 @@
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  color: #ff6600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.passo {
+  margin: 20px 0;
+}
+
+.passo img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-button {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.download-button a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #ff6600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.download-button a:hover {
+  background-color: #e05500;
+}
+
+.video-tutorial {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.video-tutorial iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.apps-section {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.apps-section div {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.apps-section img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
