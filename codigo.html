@@ -67,17 +67,31 @@ void loop() {
   Serial.println("cm.");
 
   delay(500);
-}
-      </code></pre>
+}    </code>
+      </pre>
+
+      <div class="codigo-explicacao">
+        <h3>Partes Importantes do Código C++</h3>
+        <p>
+          <strong>Setup:</strong> Configura os pinos do sensor e inicia a
+          comunicação serial.
+        </p>
+        <p>
+          <strong>Loop:</strong> Calcula a distância e envia comandos ao
+          computador.
+        </p>
+      </div>
 
       <h3>Código em Python para Comunicação com o Computador</h3>
-      <pre><code>
+      <pre>
+        <code>
 import serial
 import os
 import time
 
+# Configuração da porta serial
 arduino = serial.Serial('COM3', 9600)
-time.sleep(2)
+time.sleep(2)  # Aguarda inicialização
 
 while True:
     data = arduino.readline().decode('utf-8').strip()
@@ -87,25 +101,18 @@ while True:
     elif data == '0':
         print("Usuário presente.")
     time.sleep(1)
-      </code></pre>
-
-      <div class="codigo-explicacao">
-        <h3>Partes Importantes do Código C++</h3>
-        <p>
-          <strong>Setup:</strong> Configura os pinos do sensor e inicia a comunicação serial.
-        </p>
-        <p>
-          <strong>Loop:</strong> Calcula a distância e envia comandos ao computador.
-        </p>
-      </div>
+        </code>
+      </pre>
 
       <div class="codigo-explicacao">
         <h3>Partes Importantes do Código Python</h3>
         <p>
-          <strong>Serial:</strong> Configura a comunicação com o Arduino via porta serial.
+          <strong>Serial:</strong> Configura a comunicação com o Arduino via
+          porta serial.
         </p>
         <p>
-          <strong>Bloqueio:</strong> Bloqueia a tela do computador ao detectar ausência do usuário.
+          <strong>Bloqueio:</strong> Bloqueia a tela do computador ao detectar
+          ausência do usuário.
         </p>
       </div>
 
