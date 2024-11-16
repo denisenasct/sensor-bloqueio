@@ -14,7 +14,7 @@
         height: 50px;
       }
 
-         .main-image {
+      .main-image {
         background-image: url("./img/sd.png");
         background-size: cover;
         background-repeat: no-repeat;
@@ -43,7 +43,7 @@
 
       .hero {
         height: 100vh;
-        background-image: url("./img//sd.png");
+        background-image: url("./img/sd.png");
         background-size: cover;
         background-position: center;
         display: flex;
