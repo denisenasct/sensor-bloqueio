@@ -39,7 +39,7 @@
 }
 
 .main-image {
-        background-image: url("sd.png");
+        background-image: url("./img/sd.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
