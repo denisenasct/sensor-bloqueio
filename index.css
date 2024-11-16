@@ -1,0 +1,75 @@
+.hero {
+  height: 100vh;
+  background-image: url("./img/sd.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin: 0;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 1.5em;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.hero button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: #fff;
+  background: #ff6600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero button:hover {
+  background: #e55b00;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.section {
+  padding: 50px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.section p {
+  font-size: 1.2em;
+  color: #666;
+}
