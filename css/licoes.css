@@ -1,0 +1,44 @@
+.titulo-pagina {
+  text-align: center;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+section {
+  margin: 20px auto;
+  max-width: 800px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  color: #ff6600;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+section h2 .icon {
+  color: #ff6600;
+  font-size: 1.5em;
+}
+
+section p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #444;
+  margin: 10px 0;
+}
+
+footer {
+  text-align: center;
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 10px;
+  margin-top: 20px;
+  border-top: 3px solid #ff6600;
+}
