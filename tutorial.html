@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Passo a Passo e Aplicativos</title>
-    <link rel="stylesheet" href="./css/tutorial.css" />
+    <title>Código</title>
+    <link rel="stylesheet" href="./css/codigo.css" />
     <link rel="stylesheet" href="./css/global.css" />
     <link
       rel="stylesheet"
@@ -29,113 +29,92 @@
       </nav>
     </header>
 
-    <div class="container">
-      <h2>Passo a Passo para Montagem do Projeto</h2>
+    <main class="codigo-container">
+      <h2>Trechos do Código</h2>
 
-      <div class="passo">
-        <h3>1. Configuração do Arduino</h3>
+      <h3>Código em C++ para o Arduino</h3>
+      <pre><code>
+const int trigPin = 5;
+const int echoPin = 4;
+int enviarpy;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, LOW);
+
+  long duracao = pulseIn(echoPin, HIGH);
+  float distancia = duracao * 0.034 / 2;
+
+  if (distancia > 80) {
+    enviarpy = 1;
+    Serial.print(enviarpy);
+  } else {
+    enviarpy = 0;
+    Serial.print(enviarpy);
+  }
+
+  Serial.print("Distância: ");
+  Serial.print(distancia);
+  Serial.println("cm.");
+
+  delay(500);
+}
+      </code></pre>
+
+      <h3>Código em Python para Comunicação com o Computador</h3>
+      <pre><code>
+import serial
+import os
+import time
+
+arduino = serial.Serial('COM3', 9600)
+time.sleep(2)
+
+while True:
+    data = arduino.readline().decode('utf-8').strip()
+    if data == '1':
+        print("Usuário ausente, bloqueando tela...")
+        os.system('rundll32.exe user32.dll, LockWorkStation')
+    elif data == '0':
+        print("Usuário presente.")
+    time.sleep(1)
+      </code></pre>
+
+      <div class="codigo-explicacao">
+        <h3>Partes Importantes do Código C++</h3>
         <p>
-          Conecte o Arduino ao computador e faça o upload do código fornecido no
-          repositório.
+          <strong>Setup:</strong> Configura os pinos do sensor e inicia a comunicação serial.
         </p>
-        <img src="./img/passo1.jpg" alt="Configuração do Arduino" />
+        <p>
+          <strong>Loop:</strong> Calcula a distância e envia comandos ao computador.
+        </p>
       </div>
 
-      <div class="passo">
-        <h3>2. Montagem do Sensor Ultrassônico</h3>
+      <div class="codigo-explicacao">
+        <h3>Partes Importantes do Código Python</h3>
         <p>
-          Fixe o sensor ultrassônico na protoboard e conecte os cabos conforme o
-          esquema do projeto.
+          <strong>Serial:</strong> Configura a comunicação com o Arduino via porta serial.
         </p>
-        <img src="./img/passo2.jpg" alt="Montagem do Sensor" />
+        <p>
+          <strong>Bloqueio:</strong> Bloqueia a tela do computador ao detectar ausência do usuário.
+        </p>
       </div>
 
-      <div class="passo">
-        <h3>3. Conexão com o Computador</h3>
-        <p>
-          Conecte o Arduino ao computador via cabo USB e abra o software de
-          monitoramento.
-        </p>
-        <img src="./img/passo3.jpg" alt="Conexão com o Computador" />
-      </div>
-
-      <div class="passo">
-        <h3>4. Teste do Sistema</h3>
-        <p>
-          Realize testes para verificar o funcionamento do sensor e do bloqueio
-          de tela.
-        </p>
-        <img src="./img/passo4.jpg" alt="Teste do Sistema" />
-      </div>
-
-      <div class="download-button">
-        <a href="./arquivos/projeto_completo.zip" download>
-          Baixar Projeto Completo
+      <div class="github-link">
+        <a href="https://github.com/AstleBia/SensorBloqueio" target="_blank">
+          Acesse o Código Completo no GitHub
         </a>
       </div>
-
-      <div class="video-tutorial">
-        <h3>Vídeo Tutorial</h3>
-        <iframe
-          src="https://www.youtube.com/embed/EXEMPLO"
-          allowfullscreen
-        ></iframe>
-      </div>
-
-      <div class="apps-section">
-        <h2>Aplicativos e Plataformas Utilizados</h2>
-        <div>
-          <img src="./img/arduino-logo.jpg" alt="Arduino IDE" />
-          <p><strong>Arduino IDE</strong></p>
-          <p>Software para programação e upload do código no Arduino.</p>
-        </div>
-        <div>
-          <img src="./img/python-logo.png" alt="Python" />
-          <p><strong>Python</strong></p>
-          <p>Script para integração com o sistema operacional do computador.</p>
-        </div>
-        <div>
-          <img src="./img/github-logo.png" alt="GitHub" />
-          <p><strong>GitHub</strong></p>
-          <p>Repositório para hospedagem e compartilhamento do código.</p>
-        </div>
-        <div>
-          <img src="./img/protoboard-logo.png" alt="Protoboard" />
-          <p><strong>Protoboard</strong></p>
-          <p>Plataforma para montagem do circuito eletrônico.</p>
-        </div>
-        <div>
-          <img src="./img/paint-logo.jpg" alt="Paint" />
-          <p><strong>Paint</strong></p>
-          <p>Ferramenta para ajustes e criação de esquemas simples.</p>
-        </div>
-        <div>
-          <img src="./img/vscode-logo.jpg" alt="VS Code" />
-          <p><strong>VS Code</strong></p>
-          <p>
-            Editor de código usado para o desenvolvimento do projeto. (Versão:
-            1.95.3)
-          </p>
-        </div>
-        <div>
-          <img src="./img/youtube-logo.jpg" alt="YouTube" />
-          <p><strong>YouTube</strong></p>
-          <p>Plataforma para vídeos explicativos e tutoriais.</p>
-        </div>
-        <div>
-          <img src="./img/js-logo.png" alt="JavaScript" />
-          <p><strong>JavaScript</strong></p>
-          <p>
-            Linguagem utilizada para adicionar e melhorar a experiência visual
-            do site.
-          </p>
-        </div>
-      </div>
-    </div>
+    </main>
 
     <footer>
-      <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
-    </footer>
-  </body>
-</html>
-
+      <p>
