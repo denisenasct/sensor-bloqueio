@@ -153,6 +153,25 @@ button:hover {
     padding: 6px 10px;
   }
 
+  /* Estilo para blocos de código */
+pre {
+  background-color: #1e1e1e; /* Fundo preto ou escuro */
+  color: #d4d4d4; /* Cor clara para texto */
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto; /* Permite rolagem horizontal se o código for muito longo */
+}
+
+code {
+  font-family: "Courier New", Courier, monospace; /* Fonte monoespaçada */
+  font-size: 14px; /* Tamanho da fonte ajustável */
+  color: inherit; /* Herda a cor do texto do bloco <pre> */
+}
+
+pre code {
+  display: block; /* Garante que o código ocupe o bloco inteiro */
+}
+
   footer {
     font-size: 12px; /* Texto do rodapé menor */
   }
