@@ -51,23 +51,15 @@
     <li>Computador com IDE Arduino instalada</li>
   </ul>
 
-  <h3>Conexões do Sensor Ultrassônico</h3>
+  <h3>2. Conexões do Sensor Ultrassônico</h3>
+  <ul>
+    <li> VCC --- 5V</li>
+    <li> GND --- GND</li>
+    <li> TRIG --- Pino Digital 5</li>
+    <li> ECHO --- Pino Digital 4 </li>
+  </ul>
 
-# Conexões do Sensor Ultrassônico (HC-SR04):
-| Pino do Sensor | Conexão no Arduino |
-|----------------|---------------------|
-| VCC            | 5V                 |
-| GND            | GND                |
-| TRIG           | Pino Digital 5     |
-| ECHO           | Pino Digital 4     |
 
-# Conexões do LED (opcional):
-| Pino do LED | Conexão no Arduino |
-|-------------|---------------------|
-| Anodo (+)   | Pino Digital 13 (via resistor de 330Ω) |
-| Catodo (-)  | GND                |
-</h3>
-         
 </section>
         <img src="./img/passo1.jpg" alt="Reunir os Materiais" />
       </div>
@@ -111,8 +103,9 @@
           <li>Clique em "Upload" para carregar o código na placa Arduino.</li>
           </ul>
    <main class="codigo-container">
-     
+   
 
+         
     <h3>Código em C++ para o Arduino</h3>
       <pre>
         <code>
@@ -153,23 +146,19 @@ void loop() {
   </code>
       </pre>
 
-        <div class="passo">
-        <h3>6. Carregar o Código</h3>
-        <p>
-          Abra a IDE Arduino no computador, copie o código abaixo e cole na IDE.
-
-          
+                 
    <main class="codigo-container">
      
 
     <h3>Código em Python para Integração</h3>
      <ul>
+     <li>Abra a IDE VS Code no computador, copie o código abaixo e cole na IDE.</li>
      <li>Salve o código Python em um arquivo ("bloqueio.py").</li>
      <li>Execute o script no terminal:</li>
       "bash
       python bloqueio.py"
 
-     <li>Teste o sistema movendo objetos próximos ao sensor e observe o bloqueio de tela.</li>
+     <li>Teste o sistema movendo-se próximos ao sensor e observe o bloqueio de tela.</li>
      </ul>
      
       <pre>
@@ -205,7 +194,7 @@ except KeyboardInterrupt:
 
           
       <div class="passo">
-        <h3>6. Teste do Sistema</h3>
+        <h3>7. Teste do Sistema</h3>
         <p>
           Realize testes para verificar o funcionamento do sensor e do bloqueio
           de tela.
