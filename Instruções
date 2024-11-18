@@ -5,9 +5,9 @@ Este documento reúne todos os códigos, esquemas e instruções necessários pa
 ---
 
 # Descrição do Projeto
-O sistema utiliza um **sensor ultrassônico** para detectar a distância do usuário. Quando um objeto é detectado a uma distância inferior ao limite configurado (80 cm), o sistema ativa um bloqueio de tela ou outro mecanismo, dependendo da aplicação.
+O sistema utiliza um sensor ultrassônico para detectar a distância do usuário. Quando um objeto é detectado a uma distância inferior ao limite configurado (80 cm), o sistema ativa um bloqueio de tela ou outro mecanismo, dependendo da aplicação.
 
-### **Componentes Necessários**
+# Componentes Necessários
 - 1 Placa Arduino (UNO)
 - 1 Sensor Ultrassônico HC-SR04
 - 1 Protoboard
