@@ -50,6 +50,24 @@
     <li>Fonte de alimentação USB para o Arduino</li>
     <li>Computador com IDE Arduino instalada</li>
   </ul>
+
+  <h3>Conexões do Sensor Ultrassônico</h3>
+
+# Conexões do Sensor Ultrassônico (HC-SR04):
+| Pino do Sensor | Conexão no Arduino |
+|----------------|---------------------|
+| VCC            | 5V                 |
+| GND            | GND                |
+| TRIG           | Pino Digital 5     |
+| ECHO           | Pino Digital 4     |
+
+# Conexões do LED (opcional):
+| Pino do LED | Conexão no Arduino |
+|-------------|---------------------|
+| Anodo (+)   | Pino Digital 13 (via resistor de 330Ω) |
+| Catodo (-)  | GND                |
+</h3>
+         
 </section>
         <img src="./img/passo1.jpg" alt="Reunir os Materiais" />
       </div>
@@ -85,12 +103,13 @@
       <div class="passo">
         <h3>5. Configurar a IDE Arduino e Carregar o Código</h3>
         <p>
-          Instale a [IDE Arduino](https://www.arduino.cc/en/software).
-          Configure a porta COM correspondente ao seu Arduino.
-          Selecione a placa correta (UNO) no menu "Ferramentas".
-          Abra a IDE Arduino no computador, copie o código abaixo e cole na IDE.
-          Clique em "Upload" para carregar o código na placa Arduino.
-          
+          <ul>
+          <li>Instale a [IDE Arduino](https://www.arduino.cc/en/software).</li>
+          <li>Configure a porta COM correspondente ao seu Arduino.</li>
+          <li>Selecione a placa correta (UNO) no menu "Ferramentas".</li>
+          <li>Abra a IDE Arduino no computador, copie o código abaixo e cole na IDE.</li>
+          <li>Clique em "Upload" para carregar o código na placa Arduino.</li>
+          </ul>
    <main class="codigo-container">
      
 
@@ -135,7 +154,7 @@ void loop() {
       </pre>
 
         <div class="passo">
-        <h3>5. Carregar o Código</h3>
+        <h3>6. Carregar o Código</h3>
         <p>
           Abra a IDE Arduino no computador, copie o código abaixo e cole na IDE.
 
@@ -144,12 +163,15 @@ void loop() {
      
 
     <h3>Código em Python para Integração</h3>
-     Salve o código Python em um arquivo ("bloqueio.py").
-     Execute o script no terminal:
-    ```bash
-  python bloqueio.py
-  ```
-- Teste o sistema movendo objetos próximos ao sensor e observe o bloqueio de tela.
+     <ul>
+     <li>Salve o código Python em um arquivo ("bloqueio.py").</li>
+     <li>Execute o script no terminal:</li>
+      "bash
+      python bloqueio.py"
+
+     <li>Teste o sistema movendo objetos próximos ao sensor e observe o bloqueio de tela.</li>
+     </ul>
+     
       <pre>
         <code>
 import serial
