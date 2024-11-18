@@ -83,10 +83,13 @@
       </div>
 
       <div class="passo">
-        <h3>5. Carregar o Código</h3>
+        <h3>5. Configurar a IDE Arduino e Carregar o Código</h3>
         <p>
+          Instale a [IDE Arduino](https://www.arduino.cc/en/software).
+          Configure a porta COM correspondente ao seu Arduino.
+          Selecione a placa correta (UNO) no menu "Ferramentas".
           Abra a IDE Arduino no computador, copie o código abaixo e cole na IDE.
-
+          Clique em "Upload" para carregar o código na placa Arduino.
           
    <main class="codigo-container">
      
@@ -130,6 +133,53 @@ void loop() {
 } 
   </code>
       </pre>
+
+        <div class="passo">
+        <h3>5. Carregar o Código</h3>
+        <p>
+          Abra a IDE Arduino no computador, copie o código abaixo e cole na IDE.
+
+          
+   <main class="codigo-container">
+     
+
+    <h3>Código em Python para Integração</h3>
+     Salve o código Python em um arquivo ("bloqueio.py").
+     Execute o script no terminal:
+    ```bash
+  python bloqueio.py
+  ```
+- Teste o sistema movendo objetos próximos ao sensor e observe o bloqueio de tela.
+      <pre>
+        <code>
+import serial
+import os
+import time
+
+# Configuração da porta serial
+arduino = serial.Serial('COM3', 9600)  # Substitua 'COM3' pela porta correta
+
+def bloquear_tela():
+    print("Bloqueando a tela...")
+    if os.name == 'nt':
+        os.system("rundll32.exe user32.dll,LockWorkStation")
+    else:
+        os.system("gnome-screensaver-command -l")
+
+try:
+    while True:
+        if arduino.in_waiting > 0:
+            dados = arduino.readline().decode('utf-8').strip()
+            print(f"Dados recebidos: {dados}")
+            if dados == '1':
+                bloquear_tela()
+            time.sleep(1)
+except KeyboardInterrupt:
+    print("Encerrando...")
+    arduino.close()
+  </code>
+      </pre>
+
 
           
       <div class="passo">
