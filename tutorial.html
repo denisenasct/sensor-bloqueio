@@ -1,289 +1,56 @@
-<!DOCTYPE html> 
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Passo a Passo e Aplicativos</title>
-    <link rel="stylesheet" href="./css/tutorial.css" />
-    <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="./css/codigo.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-  </head>
-  <body>
-    <header class="header">
-      <div class="header-logo">
-        <img src="./img/cesar.png" alt="Logo César" />
-      </div>
-      <nav class="cascading-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projeto.html">O Projeto</a></li>
-          <li><a href="autores.html">Autores</a></li>
-          <li><a href="componentes.html">Componentes e Suprimentos</a></li>
-          <li><a href="tutorial.html">Passo a Passo</a></li>
-          <li><a href="codigo.html">Código</a></li>
-          <li><a href="licoes.html">Problemas/Lições Aprendidas</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <div class="container">
-      <h2>Passo a Passo para Montagem do Projeto</h2>
-
-      <div class="passo">
-        <h3>1. Reunir os Materiais e Verificar Conexões do Sensor Ultrassônico </h3>
-       <section>
-  <p>
-    Certifique-se de ter todos os componentes necessários para o projeto.
-  </p>
-
-  <h3>Lista de Materiais:</h3>
-  <ul>
-    <li>1 Placa Arduino (UNO)</li>
-    <li>1 Sensor Ultrassônico </li>
-    <li>1 Protoboard</li>
-    <li>Cabos Jumper </li>
-    <li>1 Resistor de 330Ω</li>
-    <li>Fonte de alimentação USB para o Arduino</li>
-    <li>Computador com IDE Arduino instalada</li>
-  </ul>
-
-  <h3>Conexões do Sensor Ultrassônico:</h3>
-  <ul>
-    <li> VCC --- 5V</li>
-    <li> GND --- GND</li>
-    <li> TRIG --- Pino Digital 5</li>
-    <li> ECHO --- Pino Digital 4 </li>
-  </ul>
-
-
-</section>
-        <img src="./img/passo1.jpg" alt="Reunir os Materiais" />
-      </div>
-
- <div class="passo">
-        <h3>2. Conectar a Protoboard ao Arduino</h3>
-        <p>
-          Ligue os terminais de alimentação da protoboard do Arduino.
-          Verifique se todas as conexões estão firmes e nos pinos corretos.
-        </p>
-        <img src="./img/passoi.jpg"" alt="Conexão com o Computador" />
-      </div>
-      
-      <div class="passo">
-        <h3>3. Montagem do Sensor Ultrassônico</h3>
-        <p>
-          Fixe o sensor ultrassônico na protoboard e conecte os cabos conforme o
-          esquema do projeto.
-        </p>
-        <img src="./img/passo2.jpg" alt="Montagem do Sensor" />
-      </div>
-
-                 
-      <div class="passo">
-        <h3>4. Conexão com o Computador</h3>
-        <p>
-          Conecte o Arduino ao computador via cabo USB e abra o software de
-          monitoramento.
-        </p>
-        <img src="./img/passo3.jpg" alt="Conexão com o Computador" />
-      </div>
-
-      <div class="passo">
-        <h3>5. Configurar a IDE Arduino e Carregar o Código</h3>
-        <p>
-          <ul>
-          <li>Instale a [IDE Arduino](https://www.arduino.cc/en/software).</li>
-          <li>Configure a porta COM correspondente ao seu Arduino.</li>
-          <li>Selecione a placa correta (UNO) no menu "Ferramentas".</li>
-          <li>Abra a IDE Arduino no computador, copie o código abaixo e cole na IDE.</li>
-          <li>Clique em "Upload" para carregar o código na placa Arduino.</li>
-          </ul>
-   
-        <main class="codigo-container">
-   
-
-         
-    <h3>Código em C++ para o Arduino</h3>
-      <pre>
-        <code>
-const int trigPin = 5; // Emite o sinal sonoro
-const int echoPin = 4; // Capta as ondas sonoras refletidas
-int enviarpy;
-
-void setup() {
-  Serial.begin(9600);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-}
-
-void loop() {
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(5);
-  digitalWrite(trigPin, LOW);
-
-  long duracao = pulseIn(echoPin, HIGH);
-  float distancia = duracao * 0.034 / 2;
-
-  if (distancia > 80) {
-    enviarpy = 1;
-    Serial.print(enviarpy);
-  } else {
-    enviarpy = 0;
-    Serial.print(enviarpy);
-  }
-
-  Serial.print("Distância: ");
-  Serial.print(distancia);
-  Serial.println("cm.");
-
-  delay(500);
-} 
-  </code>
-      </pre>
-
-                   
-
-    <h3>6. Código em Python para Integração</h3>
-     <ul>
-     <li>Abra a IDE VS Code no computador, copie o código abaixo e cole na IDE.</li>
-     <li>Salve o código Python em um arquivo ("bloqueio.py").</li>
-     <li>Execute o script no terminal:</li>
-      "bash <br>
-      python bloqueio.py"
-
-     <li>Teste o sistema movendo-se próximos ao sensor e observe o bloqueio de tela.</li>
-     </ul>
-
-        <main class="codigo-container">
-          <h3>Código em Pytho</h3>
-      <pre>
-        <code>
-import serial
-import os
-import time
-
-# Configuração da porta serial
-arduino = serial.Serial('COM3', 9600)  # Substitua 'COM3' pela porta correta
-
-def bloquear_tela():
-    print("Bloqueando a tela...")
-    if os.name == 'nt':
-        os.system("rundll32.exe user32.dll,LockWorkStation")
-    else:
-        os.system("gnome-screensaver-command -l")
-
-try:
-    while True:
-        if arduino.in_waiting > 0:
-            dados = arduino.readline().decode('utf-8').strip()
-            print(f"Dados recebidos: {dados}")
-            if dados == '1':
-                bloquear_tela()
-            time.sleep(1)
-except KeyboardInterrupt:
-    print("Encerrando...")
-    arduino.close()
-  </code>
-      </pre>
-
-
-          
-      <div class="passo">
-        <h3>7. Teste do Sistema</h3>
-        <p>
-          Realize testes para verificar o funcionamento do sensor e do bloqueio
-          de tela.
-        </p>
-        <img src="./img/windows.jpg" alt="Teste do Sistema" />
-      </div>
- <br>
-      </div>
-        <div>
-
-          
-      <div class="download-button">
-        <a href="./arquivos/Projeto_Sensor_Bloqueio.zip" download>
-          Baixar Projeto Completo
-        </a>
-      </div>
-
-<br>
-           </div>
-        <div>
-          
-  <div class="video-tutorial">
-  <h3>Vídeo Tutorial</h3>
-  <iframe
-    src="https://www.youtube.com/embed/MF7ti70KqyE"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
-</div>
-       
-     </div>
-
-      <div class="apps-section">
-        <h2>Aplicativos e Plataformas Utilizados</h2>
-        <div>
-          <img src="./img/arduino-logo.jpg" alt="Arduino IDE" />
-          <p><strong>Arduino IDE</strong></p>
-          <p>Software para programação e upload do código no Arduino.</p>
-        </div>
-        <div>
-          <img src="./img/python-logo.png" alt="Python" />
-          <p><strong>Python</strong></p>
-          <p>Script para integração com o sistema operacional do computador. Versão 3.12.</p>
-        </div>
-        <div>
-          <img src="./img/github-logo.png" alt="GitHub" />
-          <p><strong>GitHub</strong></p>
-          <p>Repositório para hospedagem e compartilhamento do código.</p>
-        </div>
-        <div>
-          <img src="./img/protoboard-logo.png" alt="Protoboard" />
-          <p><strong>Protoboard</strong></p>
-          <p>Plataforma para montagem do circuito eletrônico.</p>
-        </div>
-        <div>
-          <img src="./img/paint-logo.jpg" alt="Paint" />
-          <p><strong>Paint</strong></p>
-          <p>Ferramenta para ajustes e criação de esquemas simples.</p>
-        </div>
-        <div>
-          <img src="./img/vscode-logo.jpg" alt="VS Code" />
-          <p><strong>VS Code</strong></p>
-          <p>
-            Editor de código usado para o desenvolvimento do projeto. (Versão:
-            1.95.3)
-          </p>
-        </div>
-        <div>
-          <img src="./img/youtube-logo.jpg" alt="YouTube" />
-          <p><strong>YouTube</strong></p>
-          <p>Plataforma para vídeos explicativos e tutoriais.</p>
-        </div>
-        <div>
-          <img src="./img/js-logo.png" alt="JavaScript" />
-          <p><strong>JavaScript</strong></p>
-          <p>
-            Linguagem utilizada para adicionar e melhorar a experiência visual
-            do site.
-          </p>
-        </div>
-      </div>
+<div class="apps-section">
+  <h2>Aplicativos e Plataformas Utilizados</h2>
+  <!-- Primeira linha com 4 aplicativos -->
+  <div class="apps-row">
+    <div class="app-card">
+      <p class="app-name">Arduino IDE</p>
+      <img src="./img/arduino-logo.jpg" alt="Arduino IDE" />
+      <p>Software para programação e upload do código no Arduino.</p>
     </div>
+    <div class="app-card">
+      <p class="app-name">Python</p>
+      <img src="./img/python-logo.png" alt="Python" />
+      <p>Script para integração com o sistema operacional do computador. Versão 3.12.</p>
+    </div>
+    <div class="app-card">
+      <p class="app-name">GitHub</p>
+      <img src="./img/github-logo.png" alt="GitHub" />
+      <p>Repositório para hospedagem e compartilhamento do código.</p>
+    </div>
+    <div class="app-card">
+      <p class="app-name">Protoboard</p>
+      <img src="./img/protoboard-logo.png" alt="Protoboard" />
+      <p>Plataforma para montagem do circuito eletrônico.</p>
+    </div>
+  </div>
 
-    <script src="./js/tutorial.js"></script>
-
-    <footer>
-      <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
-    </footer>
-  </body>
-</html>
+  <!-- Segunda linha com 4 aplicativos -->
+  <div class="apps-row">
+    <div class="app-card">
+      <p class="app-name">Paint</p>
+      <img src="./img/paint-logo.jpg" alt="Paint" />
+      <p>Ferramenta para ajustes e criação de esquemas simples.</p>
+    </div>
+    <div class="app-card">
+      <p class="app-name">VS Code</p>
+      <img src="./img/vscode-logo.jpg" alt="VS Code" />
+      <p>
+        Editor de código usado para o desenvolvimento do projeto. (Versão:
+        1.95.3)
+      </p>
+    </div>
+    <div class="app-card">
+      <p class="app-name">YouTube</p>
+      <img src="./img/youtube-logo.jpg" alt="YouTube" />
+      <p>Plataforma para vídeos explicativos e tutoriais.</p>
+    </div>
+    <div class="app-card">
+      <p class="app-name">JavaScript</p>
+      <img src="./img/js-logo.png" alt="JavaScript" />
+      <p>
+        Linguagem utilizada para adicionar e melhorar a experiência visual do
+        site.
+      </p>
+    </div>
+  </div>
+</div>
