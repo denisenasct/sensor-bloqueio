@@ -1,3 +1,4 @@
+/* Estilo global */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,6 +7,7 @@ body {
   color: #333;
 }
 
+/* Cabeçalho */
 .header {
   background-color: #1f1f1f;
   padding: 10px 20px;
@@ -18,6 +20,7 @@ body {
   height: 50px;
 }
 
+/* Imagem de fundo principal */
 .main-image {
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,6 +29,7 @@ body {
   width: 100%;
 }
 
+/* Menu de navegação */
 .cascading-menu ul {
   list-style: none;
   display: flex;
@@ -45,6 +49,7 @@ body {
   color: #ff6600;
 }
 
+/* Rodapé */
 footer {
   background-color: #1f1f1f;
   color: #fff;
@@ -62,17 +67,22 @@ footer a:hover {
   text-decoration: underline;
 }
 
-h1, h2, h3 {
+/* Estilo para títulos */
+h1,
+h2,
+h3 {
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* Configuração para imagens */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+/* Estilo para botões */
 button {
   cursor: pointer;
   border: none;
@@ -81,4 +91,69 @@ button {
 
 button:hover {
   opacity: 0.9;
+}
+
+/* Responsividade */
+
+/* Ajuste para telas médias (tablets, 768px ou menores) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Empilha o conteúdo do cabeçalho */
+    text-align: center;
+  }
+
+  .cascading-menu ul {
+    flex-direction: column; /* Empilha os links do menu */
+    gap: 10px; /* Reduz o espaçamento entre os links */
+  }
+
+  .main-image {
+    height: 50vh; /* Reduz a altura da imagem de fundo em tablets */
+  }
+
+  img {
+    max-width: 80%; /* Reduz o tamanho máximo das imagens */
+  }
+
+  button {
+    font-size: 14px; /* Ajusta o tamanho do botão */
+    padding: 8px 15px;
+  }
+}
+
+/* Ajuste para telas pequenas (celulares, 480px ou menores) */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 10px;
+  }
+
+  .cascading-menu ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .main-image {
+    height: 40vh; /* Altura menor para celulares */
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-size: 1.2em; /* Reduz o tamanho dos títulos */
+  }
+
+  img {
+    max-width: 70%; /* Ajusta ainda mais o tamanho das imagens */
+  }
+
+  button {
+    font-size: 12px; /* Botão menor */
+    padding: 6px 10px;
+  }
+
+  footer {
+    font-size: 12px; /* Texto do rodapé menor */
+  }
 }
