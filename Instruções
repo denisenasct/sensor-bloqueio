@@ -1,17 +1,17 @@
-# SensorBloqueio - Projeto para as cadeiras de Sistemas Digitais e Introdução à Computação
+# Resumo do Projeto: Sistema de Bloqueio por Sensor Ultrassônico
 
 Este documento reúne todos os códigos, esquemas e instruções necessários para a implementação do projeto de um sistema de bloqueio utilizando um sensor ultrassônico e Arduino. O objetivo é fornecer um guia completo e consolidado para replicar o projeto.
 
 ---
 
 # Descrição do Projeto
-O sistema utiliza um sensor ultrassônico para detectar a distância do usuário. Quando o usuário é detectado a uma distância inferior ao limite configurado (80 cm), o sistema ativa um bloqueio de tela (windows+L).
+O sistema utiliza um **sensor ultrassônico** para detectar a distância do usuário. Quando um objeto é detectado a uma distância inferior ao limite configurado (80 cm), o sistema ativa um bloqueio de tela ou outro mecanismo, dependendo da aplicação.
 
-# Componentes Necessários
+### **Componentes Necessários**
 - 1 Placa Arduino (UNO)
-- 1 Sensor Ultrassônico 
+- 1 Sensor Ultrassônico HC-SR04
 - 1 Protoboard
-- Cabos Jumper
+- Cabos Jumper (macho-macho)
 - 1 Resistor de 330Ω
 - Fonte de alimentação USB para o Arduino
 - Computador com IDE Arduino instalada
@@ -28,7 +28,13 @@ O sistema utiliza um sensor ultrassônico para detectar a distância do usuário
 | TRIG           | Pino Digital 5     |
 | ECHO           | Pino Digital 4     |
 
+# Conexões do LED (opcional):
+| Pino do LED | Conexão no Arduino |
+|-------------|---------------------|
+| Anodo (+)   | Pino Digital 13 (via resistor de 330Ω) |
+| Catodo (-)  | GND                |
 
+---
 
 # Código Fonte em C++ (IDE Arduino)
 
@@ -74,7 +80,49 @@ void loop() {
 
 ---
 
-# Passo a Passo para Montagem
+# Código em Python para Integração
+
+Este código Python lê os dados enviados pelo Arduino via porta serial e executa uma ação (como bloquear a tela) quando a distância detectada pelo sensor ultrassônico atinge um valor específico.
+
+```python
+import serial
+import os
+import time
+
+# Configuração da porta serial
+arduino = serial.Serial('COM3', 9600)  # Substitua 'COM3' pela porta correta
+
+def bloquear_tela():
+    print("Bloqueando a tela...")
+    if os.name == 'nt':
+        os.system("rundll32.exe user32.dll,LockWorkStation")
+    else:
+        os.system("gnome-screensaver-command -l")
+
+try:
+    while True:
+        if arduino.in_waiting > 0:
+            dados = arduino.readline().decode('utf-8').strip()
+            print(f"Dados recebidos: {dados}")
+            if dados == '1':
+                bloquear_tela()
+            time.sleep(1)
+except KeyboardInterrupt:
+    print("Encerrando...")
+    arduino.close()
+```
+
+# Configuração
+1. Instale o Python 3.12 ou superior.
+2. Instale a biblioteca `pyserial` executando:
+   ```bash
+   pip install pyserial
+   ```
+3. Ajuste a porta serial (`COM3`) conforme necessário.
+
+---
+
+#Passo a Passo para Montagem
 
 # 1. Reunir os Materiais
 Certifique-se de que todos os componentes estão disponíveis antes de iniciar.
@@ -93,8 +141,16 @@ Certifique-se de que todos os componentes estão disponíveis antes de iniciar.
 - Clique em "Upload" para carregar o código na placa Arduino.
 
 # 5. Testar o Sistema
-- Fique em diferentes distâncias do sensor.
+- Posicione o usuário em diferentes distâncias do sensor.
 - Verifique a saída no Monitor Serial da IDE Arduino.
+
+# 6. Executar o Código Python
+- Salve o código Python em um arquivo (`bloqueio.py`).
+- Execute o script no terminal:
+  ```bash
+  python bloqueio.py
+  ```
+- Teste o sistema movendo objetos próximos ao sensor e observe o bloqueio de tela.
 
 ---
 
