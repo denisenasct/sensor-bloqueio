@@ -82,3 +82,49 @@ display: block;
 margin-left: auto; 
 margin-right: auto; 
 }
+
+.tutorial-section {
+  background-color: #1e1e1e; /* Fundo preto */
+  color: #fff; /* Texto branco */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 800px; /* Largura máxima para centralizar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #ff6600; /* Destaque no título */
+}
+
+.tutorial-section iframe {
+  width: 100%;
+  height: 315px; /* Proporção padrão para vídeos */
+  margin-bottom: 15px;
+  border: none; /* Remove bordas ao redor do vídeo */
+  border-radius: 8px; /* Bordas arredondadas no vídeo */
+}
+
+.tutorial-section .download-button {
+  margin-top: 15px;
+}
+
+.tutorial-section .download-button a {
+  display: inline-block;
+  background-color: #ff6600; /* Cor do botão */
+  color: #fff; /* Texto branco */
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.tutorial-section .download-button a:hover {
+  background-color: #e55b00; /* Efeito hover no botão */
+}
+
