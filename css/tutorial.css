@@ -1,120 +1,85 @@
-/* Seção principal dos aplicativos */
-.apps-section {
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  color: #ff6600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.passo {
+  margin: 20px 0;
+}
+
+.passo img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-button {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.download-button a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #ff6600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.download-button a:hover {
+  background-color: #e05500;
+}
+
+.video-tutorial {
   text-align: center;
   margin: 30px 0;
 }
 
-/* Organização das linhas de aplicativos */
-.apps-row {
-  display: flex;
-  flex-wrap: wrap; /* Permite quebra de linha para os itens */
-  justify-content: center; /* Centraliza os itens */
-  gap: 20px; /* Espaçamento entre os blocos */
+.video-tutorial iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo dos blocos de aplicativos */
-.app-card {
-  background: #fff;
-  border-radius: 10px; /* Bordas arredondadas */
-  padding: 20px; /* Espaçamento interno */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
-  text-align: center; /* Centraliza o conteúdo do bloco */
-  max-width: 200px; /* Largura máxima dos blocos */
-  flex: 1 1 calc(25% - 20px); /* Configura tamanho flexível */
-  box-sizing: border-box; /* Inclui padding no tamanho */
-}
-
-/* Imagens dos aplicativos */
-.app-card img {
-  max-width: 80px; /* Largura máxima da imagem */
-  margin: 10px auto; /* Centraliza as imagens vertical e horizontalmente */
-  display: block; /* Garante alinhamento central */
-}
-
-/* Títulos dos aplicativos */
-.app-name {
-  color: #ff6600; /* Cor laranja */
-  font-weight: bold; /* Negrito */
-  font-size: 16px; /* Tamanho da fonte */
-  margin-bottom: 10px; /* Espaçamento inferior */
-}
-
-/* Descrições dos aplicativos */
-.app-card p {
-  font-size: 14px; /* Tamanho da fonte */
-  color: #333; /* Cor do texto */
-  margin: 5px 0; /* Espaçamento entre parágrafos */
-}
-
-/* Configurações gerais */
-body {
-  font-family: Arial, sans-serif; /* Fonte padrão */
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9; /* Cor de fundo */
-  color: #333; /* Cor do texto padrão */
-}
-
-/* Cabeçalho */
-.header {
-  background-color: #1f1f1f;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-logo img {
-  height: 50px;
-}
-
-/* Menu de navegação */
-.cascading-menu ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.cascading-menu a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.cascading-menu a:hover {
-  color: #ff6600;
-}
-
-/* Rodapé */
-footer {
-  background-color: #1f1f1f;
-  color: #fff;
+.apps-section {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
   text-align: center;
-  padding: 10px;
-  margin-top: 20px;
 }
 
-footer a {
-  color: #ff6600;
-  text-decoration: none;
+.apps-section div {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-footer a:hover {
-  text-decoration: underline;
-}
+.apps-section img {
+ width: 50px; 
+height: 50px; 
+margin-bottom: 10px; 
+display: block; 
 
-/* Estilo adicional para responsividade */
-@media (max-width: 768px) {
-  .app-card {
-    flex: 1 1 calc(50% - 20px); /* Dois aplicativos por linha em telas menores */
-  }
-}
-
-@media (max-width: 480px) {
-  .app-card {
-    flex: 1 1 100%; /* Um aplicativo por linha em telas pequenas */
-  }
+margin-left: auto; 
+margin-right: auto; 
 }
