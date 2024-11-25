@@ -33,20 +33,39 @@ body {
   width: 100%; /* Garante que ocupe a largura completa */
 }
 
-/* Responsividade para telas médias (tablets, 768px ou menores) */
-@media (max-width: 768px) {
-  .main-image {
-    background-size: cover; /* Ajusta para cobrir em telas médias */
-    min-height: 50vh; /* Reduz a altura para dispositivos médios */
-  }
+/* Texto de boas-vindas */
+.welcome-text {
+  text-align: center;
+  margin-top: 20px; /* Espaçamento superior */
+  margin-bottom: 15px; /* Espaçamento inferior */
+  font-size: 1.8em;
 }
 
-/* Responsividade para telas pequenas (celulares, 480px ou menores) */
-@media (max-width: 480px) {
-  .main-image {
-    background-size: contain; /* Mostra toda a imagem sem cortes */
-    min-height: 40vh; /* Altura menor para telas pequenas */
-  }
+/* Subtítulo ou descrição */
+.explore-solutions {
+  text-align: center;
+  margin: 10px auto; /* Espaçamento superior e inferior */
+  max-width: 90%; /* Limita a largura para evitar colagem */
+  font-size: 1.2em;
+  line-height: 1.5; /* Facilita a leitura */
+}
+
+/* Botão "Saiba mais" */
+.saiba-mais-btn {
+  display: inline-block;
+  margin: 20px auto; /* Espaçamento em torno do botão */
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.saiba-mais-btn:hover {
+  background-color: #0056b3;
 }
 
 /* Menu de navegação */
@@ -130,120 +149,39 @@ button:hover {
   opacity: 0.9;
 }
 
-/* Responsividade para telas médias e pequenas */
+/* Responsividade para telas médias (tablets, 768px ou menores) */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column; /* Empilha o conteúdo do cabeçalho */
-    text-align: center;
+  .main-image {
+    background-size: cover; /* Ajusta para cobrir em telas médias */
+    min-height: 50vh; /* Reduz a altura para dispositivos médios */
   }
 
-  .cascading-menu ul {
-    flex-direction: column; /* Empilha os links do menu */
-    gap: 10px; /* Reduz o espaçamento entre os links */
-    align-items: center; /* Centraliza os itens */
-  }
-
-  button {
-    font-size: 14px; /* Ajusta o tamanho do botão */
-    padding: 8px 15px;
-  }
-
-  footer {
-    font-size: 0.8em; /* Texto do rodapé menor */
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px 10px;
-  }
-
-  .cascading-menu ul {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  h1,
-  h2,
-  h3 {
-    font-size: 1.2em; /* Reduz o tamanho dos títulos */
-  }
-
-  img {
-    max-width: 70%; /* Ajusta ainda mais o tamanho das imagens */
-    margin: 0 auto; /* Centraliza imagens */
-  }
-
-  button {
-    font-size: 12px; /* Botão menor */
-    padding: 6px 10px;
-    width: 100%; /* Botões ocupam toda a largura */
-  }
-
-  footer {
-    font-size: 0.7em; /* Texto menor no rodapé */
-  }
-}
-
-/* Texto de boas-vindas */
-.welcome-text {
-  text-align: center;
-  margin-top: 20px; /* Espaçamento superior */
-  margin-bottom: 15px; /* Espaçamento inferior */
-  font-size: 1.8em;
-}
-
-/* Subtítulo ou descrição */
-.explore-solutions {
-  text-align: center;
-  margin: 10px auto; /* Espaçamento superior e inferior */
-  max-width: 90%; /* Limita a largura para evitar colagem */
-  font-size: 1.2em;
-  line-height: 1.5; /* Facilita a leitura */
-}
-
-/* Botão "Saiba mais" */
-.saiba-mais-btn {
-  display: inline-block;
-  margin: 20px auto; /* Espaçamento em torno do botão */
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #007BFF;
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.saiba-mais-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
   .welcome-text {
-    font-size: 1.5em; /* Reduz o tamanho do texto em telas menores */
+    font-size: 1.5em; /* Ajusta o tamanho do texto */
     margin-top: 15px;
   }
 
   .explore-solutions {
-    font-size: 1em;
-    margin: 15px auto; /* Ajusta o espaçamento */
+    font-size: 1em; /* Ajusta tamanho do subtítulo */
+    margin: 15px auto; /* Espaçamento */
   }
 
   .saiba-mais-btn {
     font-size: 0.9em;
-    padding: 8px 15px; /* Botão menor em telas menores */
+    padding: 8px 15px; /* Botão menor em telas médias */
     margin: 15px auto;
   }
 }
 
+/* Responsividade para telas pequenas (celulares, 480px ou menores) */
 @media (max-width: 480px) {
+  .main-image {
+    background-size: contain; /* Mostra toda a imagem sem cortes */
+    min-height: 40vh; /* Altura menor para telas pequenas */
+  }
+
   .welcome-text {
-    font-size: 1.2em; /* Reduz ainda mais o texto em celulares */
+    font-size: 1.2em; /* Reduz ainda mais o texto */
     margin-top: 10px;
   }
 
