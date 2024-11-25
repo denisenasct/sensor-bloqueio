@@ -17,8 +17,9 @@ body {
   background-color: #1f1f1f;
   padding: 10px 20px;
   display: flex;
-  flex-direction: column; /* Itens um embaixo do outro */
-  align-items: center; /* Alinha ao lado esquerdo : flex-start */
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
 }
 
 .header-logo {
