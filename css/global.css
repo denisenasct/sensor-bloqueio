@@ -38,6 +38,7 @@ body {
   text-align: center;
   margin-top: 20px; /* Espaçamento superior */
   margin-bottom: 15px; /* Espaçamento inferior */
+  max-width: 80%; /* Limita a largura para evitar colagem */
   font-size: 1.8em;
 }
 
@@ -45,7 +46,7 @@ body {
 .explore-solutions {
   text-align: center;
   margin: 10px auto; /* Espaçamento superior e inferior */
-  max-width: 90%; /* Limita a largura para evitar colagem */
+  max-width: 80%; /* Limita a largura para evitar colagem */
   font-size: 1.2em;
   line-height: 1.5; /* Facilita a leitura */
 }
