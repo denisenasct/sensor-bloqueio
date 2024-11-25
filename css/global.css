@@ -25,11 +25,28 @@ body {
 
 /* Imagem de fundo principal */
 .main-image {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 70vh; /* Altura mínima ajustável */
-  width: 100%;
+  background-size: contain; /* Mostra toda a imagem sem cortes */
+  background-position: center center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetições da imagem */
+  height: auto; /* Ajusta automaticamente à proporção da imagem */
+  min-height: 70vh; /* Define uma altura mínima */
+  width: 100%; /* Garante que ocupe a largura completa */
+}
+
+/* Responsividade para telas médias (tablets, 768px ou menores) */
+@media (max-width: 768px) {
+  .main-image {
+    background-size: cover; /* Ajusta para cobrir em telas médias */
+    min-height: 50vh; /* Reduz a altura para dispositivos médios */
+  }
+}
+
+/* Responsividade para telas pequenas (celulares, 480px ou menores) */
+@media (max-width: 480px) {
+  .main-image {
+    background-size: contain; /* Mostra toda a imagem sem cortes */
+    min-height: 40vh; /* Altura menor para telas pequenas */
+  }
 }
 
 /* Menu de navegação */
@@ -113,9 +130,7 @@ button:hover {
   opacity: 0.9;
 }
 
-/* Responsividade */
-
-/* Ajuste para telas médias (tablets, 768px ou menores) */
+/* Responsividade para telas médias e pequenas */
 @media (max-width: 768px) {
   .header {
     flex-direction: column; /* Empilha o conteúdo do cabeçalho */
@@ -128,14 +143,6 @@ button:hover {
     align-items: center; /* Centraliza os itens */
   }
 
-  .main-image {
-    min-height: 50vh; /* Reduz a altura da imagem de fundo */
-  }
-
-  img {
-    max-width: 80%; /* Reduz o tamanho máximo das imagens */
-  }
-
   button {
     font-size: 14px; /* Ajusta o tamanho do botão */
     padding: 8px 15px;
@@ -146,7 +153,6 @@ button:hover {
   }
 }
 
-/* Ajuste para telas pequenas (celulares, 480px ou menores) */
 @media (max-width: 480px) {
   .header {
     flex-direction: column;
@@ -157,10 +163,6 @@ button:hover {
   .cascading-menu ul {
     flex-direction: column;
     gap: 8px;
-  }
-
-  .main-image {
-    min-height: 40vh; /* Altura menor para celulares */
   }
 
   h1,
