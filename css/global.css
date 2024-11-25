@@ -5,6 +5,7 @@ body {
   padding: 0;
   background-color: #f4f4f9;
   color: #333;
+  line-height: 1.6;
 }
 
 /* Cabeçalho */
@@ -14,10 +15,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
 }
 
 .header-logo img {
   height: 50px;
+  max-width: 100%; /* Garante adaptação em telas menores */
 }
 
 /* Imagem de fundo principal */
@@ -25,7 +28,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  min-height: 70vh; /* Altura mínima ajustável */
   width: 100%;
 }
 
@@ -36,6 +39,7 @@ body {
   gap: 15px;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap; /* Permite empilhamento em telas pequenas */
 }
 
 .cascading-menu a {
@@ -56,6 +60,7 @@ footer {
   text-align: center;
   padding: 10px;
   margin-top: 20px;
+  font-size: 0.9em;
 }
 
 footer a {
@@ -75,6 +80,18 @@ h3 {
   margin-bottom: 10px;
 }
 
+h1 {
+  font-size: 2em; /* Ajuste dinâmico para títulos */
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
 /* Configuração para imagens */
 img {
   max-width: 100%;
@@ -86,7 +103,10 @@ img {
 button {
   cursor: pointer;
   border: none;
+  padding: 10px 20px;
+  font-size: 16px;
   transition: all 0.3s;
+  width: auto; /* Evita largura fixa */
 }
 
 button:hover {
@@ -105,10 +125,11 @@ button:hover {
   .cascading-menu ul {
     flex-direction: column; /* Empilha os links do menu */
     gap: 10px; /* Reduz o espaçamento entre os links */
+    align-items: center; /* Centraliza os itens */
   }
 
   .main-image {
-    height: 50vh; /* Reduz a altura da imagem de fundo em tablets */
+    min-height: 50vh; /* Reduz a altura da imagem de fundo */
   }
 
   img {
@@ -118,6 +139,10 @@ button:hover {
   button {
     font-size: 14px; /* Ajusta o tamanho do botão */
     padding: 8px 15px;
+  }
+
+  footer {
+    font-size: 0.8em; /* Texto do rodapé menor */
   }
 }
 
@@ -135,7 +160,7 @@ button:hover {
   }
 
   .main-image {
-    height: 40vh; /* Altura menor para celulares */
+    min-height: 40vh; /* Altura menor para celulares */
   }
 
   h1,
@@ -146,33 +171,17 @@ button:hover {
 
   img {
     max-width: 70%; /* Ajusta ainda mais o tamanho das imagens */
+    margin: 0 auto; /* Centraliza imagens */
   }
 
   button {
     font-size: 12px; /* Botão menor */
     padding: 6px 10px;
+    width: 100%; /* Botões ocupam toda a largura */
   }
-
-  /* Estilo para blocos de código */
-pre {
-  background-color: #1e1e1e; /* Fundo preto ou escuro */
-  color: #d4d4d4; /* Cor clara para texto */
-  padding: 10px;
-  border-radius: 5px;
-  overflow-x: auto; /* Permite rolagem horizontal se o código for muito longo */
-}
-
-code {
-  font-family: "Courier New", Courier, monospace; /* Fonte monoespaçada */
-  font-size: 14px; /* Tamanho da fonte ajustável */
-  color: inherit; /* Herda a cor do texto do bloco <pre> */
-}
-
-pre code {
-  display: block; /* Garante que o código ocupe o bloco inteiro */
-}
 
   footer {
-    font-size: 12px; /* Texto do rodapé menor */
+    font-size: 0.7em; /* Texto menor no rodapé */
   }
 }
+
