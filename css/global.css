@@ -1,8 +1,12 @@
 /* Estilo global */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 0 15px; /* Espaçamento nas laterais */
   background-color: #f4f4f9;
   color: #333;
   line-height: 1.6;
@@ -13,14 +17,37 @@ body {
   background-color: #1f1f1f;
   padding: 10px 20px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
+  flex-direction: column; /* Itens um embaixo do outro */
+  align-items: flex-start; /* Alinha ao lado esquerdo */
+}
+
+.header-logo {
+  margin-bottom: 10px; /* Espaçamento entre o logo e o menu */
 }
 
 .header-logo img {
   height: 50px;
   max-width: 100%; /* Garante adaptação em telas menores */
+}
+
+.cascading-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Itens na vertical */
+  gap: 10px; /* Espaçamento entre itens */
+}
+
+.cascading-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.cascading-menu a:hover {
+  color: #ff6600;
 }
 
 /* Imagem de fundo principal */
@@ -36,10 +63,10 @@ body {
 /* Texto de boas-vindas */
 .welcome-text {
   text-align: center;
-  margin-top: 20px; /* Espaçamento superior */
-  margin-bottom: 15px; /* Espaçamento inferior */
+  margin: 20px auto; /* Espaçamento superior e inferior */
   max-width: 80%; /* Limita a largura para evitar colagem */
   font-size: 1.8em;
+  padding: 0 15px; /* Adiciona espaçamento interno lateral */
 }
 
 /* Subtítulo ou descrição */
@@ -49,6 +76,7 @@ body {
   max-width: 80%; /* Limita a largura para evitar colagem */
   font-size: 1.2em;
   line-height: 1.5; /* Facilita a leitura */
+  padding: 0 15px; /* Adiciona espaçamento interno lateral */
 }
 
 /* Botão "Saiba mais" */
@@ -67,27 +95,6 @@ body {
 
 .saiba-mais-btn:hover {
   background-color: #0056b3;
-}
-
-/* Menu de navegação */
-.cascading-menu ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap; /* Permite empilhamento em telas pequenas */
-}
-
-.cascading-menu a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.cascading-menu a:hover {
-  color: #ff6600;
 }
 
 /* Rodapé */
@@ -160,11 +167,13 @@ button:hover {
   .welcome-text {
     font-size: 1.5em; /* Ajusta o tamanho do texto */
     margin-top: 15px;
+    padding: 0 10px; /* Espaçamento lateral */
   }
 
   .explore-solutions {
     font-size: 1em; /* Ajusta tamanho do subtítulo */
     margin: 15px auto; /* Espaçamento */
+    padding: 0 10px; /* Espaçamento lateral */
   }
 
   .saiba-mais-btn {
@@ -184,12 +193,14 @@ button:hover {
   .welcome-text {
     font-size: 1.2em; /* Reduz ainda mais o texto */
     margin-top: 10px;
+    padding: 0 5px; /* Espaçamento lateral menor */
   }
 
   .explore-solutions {
     font-size: 0.9em;
     line-height: 1.4;
     margin: 10px auto;
+    padding: 0 5px; /* Espaçamento lateral menor */
   }
 
   .saiba-mais-btn {
