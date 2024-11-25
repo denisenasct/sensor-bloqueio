@@ -18,7 +18,7 @@ body {
   padding: 10px 20px;
   display: flex;
   flex-direction: column; /* Itens um embaixo do outro */
-  align-items: flex-start; /* Alinha ao lado esquerdo */
+  align-items: center; /* Alinha ao lado esquerdo : flex-start */
 }
 
 .header-logo {
