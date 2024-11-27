@@ -37,40 +37,53 @@
     <h3>Código em C++ para o Arduino</h3>
       <pre>
         <code>
-const int trigPin = 5; // Emite o sinal sonoro
-const int echoPin = 4; // Capta as ondas sonoras refletidas
+//CÓDIGO SENSOR ULTRASSONICO PRO ARDUINO:
+
+const int trigPin = 5; //Emite o sinal sonoro
+const int echoPin = 4; //Capta as ondas sonoras refletidas
 int enviarpy;
 
 void setup() {
+  // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  pinMode(trigPin, OUTPUT); //Definido Como saida pois ele emite o sinal sonoro
+  pinMode(echoPin, INPUT); //Definido como entrada pois capta as ondas sonoras refletidas
 }
 
 void loop() {
+  // put your main code here, to run repeatedly:
+
+  //Enviando pulso ultrassonico:
   digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
+  delayMicroseconds(1000);
   digitalWrite(trigPin, HIGH);
-  delayMicroseconds(5);
-  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2); 
+  //digitalWrite(trigPin, LOW);
 
+  //Leitura do tempo de retorno do pulso:
   long duracao = pulseIn(echoPin, HIGH);
-  float distancia = duracao * 0.034 / 2;
 
+  //Calcula a distancia em cm:
+  float distancia = duracao * 0.34/2;
+  
   if (distancia > 80) {
-    enviarpy = 1;
+    int enviarpy = 1 ;
     Serial.print(enviarpy);
-  } else {
-    enviarpy = 0;
+  }
+  else {
+    int enviarpy = 0;
     Serial.print(enviarpy);
   }
 
+
+
+  //Imprime a distancia no monitor serial:
   Serial.print("Distância: ");
   Serial.print(distancia);
-  Serial.println("cm.");
 
-  delay(500);
-} 
+  delay(500); // Pequena pausa antes da próxima leitura
+
+}
   </code>
       </pre>
 
@@ -89,24 +102,44 @@ void loop() {
       <h3>Código em Python para Comunicação com o Computador</h3>
       <pre>
         <code>
+import subprocess
 import serial
-import os
-import time
+from time import sleep
 
-# Configuração da porta serial
-arduino = serial.Serial('COM3', 9600)
-time.sleep(2)  # Aguarda inicialização
+def bloquearPc():
+    subprocess.run("rundll32.exe user32.dll,LockWorkStation", shell=True)
 
-while True:
-    data = arduino.readline().decode('utf-8').strip()
-    if data == '1':
-        print("Usuário ausente, bloqueando tela...")
-        os.system('rundll32.exe user32.dll, LockWorkStation')
-    elif data == '0':
-        print("Usuário presente.")
-    time.sleep(1)
-        </code>
-      </pre>
+def distancia(dist):
+    if dist > 80:
+        print("Longe")
+        sleep(0.5)
+        bloquearPc()
+        return 1
+    else:
+        print("Perto")
+        return 0
+
+print('Inicio do codigo')
+while True: #Loop para a conexão com o Arduino
+    try:  #Tenta se conectar, se conseguir, o loop se encerra
+        arduino = serial.Serial('COM10', 9600)
+        print('2')
+        print('Arduino conectado')
+        break
+    except Exception as e: print(e)
+        # pass
+print('Depois do while true')
+while True: #Loop principal
+    msg = str(arduino.readline()) #Lê os dados em formato de string
+    msg = msg[21:-8] #Fatia a string
+    msg = float(msg)
+    #print("Mensagem: {:.2f}".format(msg)) #Imprime a mensagem
+    #msg = float(msg)
+    distancia(msg)
+    if distancia(msg) == 1:
+        break
+    #print(msg,"cm.")
+    arduino.flush() #Limpa a comunicação
 
       <div class="codigo-explicacao">
         <h3>Partes Importantes do Código Python</h3>
