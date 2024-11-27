@@ -17,7 +17,7 @@ body {
   background-color: #1f1f1f;
   padding: 10px 20px;
   display: flex;
-  align-items: center;
+  align-items: center; /* Centraliza logo e itens verticalmente */
   justify-content: space-between;
   flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
 }
@@ -163,35 +163,17 @@ button:hover {
 @media (max-width: 768px) {
   .header {
     flex-direction: column; /* Itens na vertical em tablets */
-    align-items: center;
+    align-items: center; /* Centraliza logo e menu */
+  }
+
+  .header-logo {
+    margin-bottom: 10px; /* Espaçamento entre logo e menu */
+    margin-right: 0; /* Remove margem lateral */
   }
 
   .cascading-menu ul {
     flex-direction: column; /* Alinha verticalmente os itens */
     gap: 10px; /* Espaçamento menor entre itens */
-  }
-
-  .main-image {
-    background-size: cover; /* Ajusta para cobrir em telas médias */
-    min-height: 50vh; /* Reduz a altura para dispositivos médios */
-  }
-
-  .welcome-text {
-    font-size: 1.5em; /* Ajusta o tamanho do texto */
-    margin-top: 15px;
-    padding: 0 10px; /* Espaçamento lateral */
-  }
-
-  .explore-solutions {
-    font-size: 1em; /* Ajusta tamanho do subtítulo */
-    margin: 15px auto; /* Espaçamento */
-    padding: 0 10px; /* Espaçamento lateral */
-  }
-
-  .saiba-mais-btn {
-    font-size: 0.9em;
-    padding: 8px 15px; /* Botão menor em telas médias */
-    margin: 15px auto;
   }
 }
 
@@ -199,35 +181,18 @@ button:hover {
 @media (max-width: 480px) {
   .header {
     padding: 10px; /* Reduz o espaçamento no cabeçalho */
+    align-items: center; /* Centraliza logo e menu no celular */
+  }
+
+  .header-logo {
+    margin-bottom: 10px; /* Espaçamento entre logo e menu */
+    text-align: center; /* Centraliza o logo */
+    width: 100%; /* Garante alinhamento central */
   }
 
   .cascading-menu ul {
     flex-direction: column; /* Alinha verticalmente em celulares */
     gap: 8px; /* Reduz o espaçamento ainda mais */
-  }
-
-  .main-image {
-    background-size: contain; /* Mostra toda a imagem sem cortes */
-    min-height: 40vh; /* Altura menor para telas pequenas */
-  }
-
-  .welcome-text {
-    font-size: 1.2em; /* Reduz ainda mais o texto */
-    margin-top: 10px;
-    padding: 0 5px; /* Espaçamento lateral menor */
-  }
-
-  .explore-solutions {
-    font-size: 0.9em;
-    line-height: 1.4;
-    margin: 10px auto;
-    padding: 0 5px; /* Espaçamento lateral menor */
-  }
-
-  .saiba-mais-btn {
-    font-size: 0.8em;
-    padding: 6px 10px;
-    margin: 10px auto;
   }
 }
 
