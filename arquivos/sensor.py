@@ -1,17 +1,38 @@
+import subprocess
 import serial
-import os
-import time
+from time import sleep
 
-# Configuração da porta serial
-arduino = serial.Serial('COM3', 9600)
-time.sleep(2)  # Aguarda inicialização
+def bloquearPc():
+    subprocess.run("rundll32.exe user32.dll,LockWorkStation", shell=True)
 
-while True:
-    data = arduino.readline().decode('utf-8').strip()
-    if data == '1':
-        print("Usuário ausente, bloqueando tela...")
-        os.system('rundll32.exe user32.dll, LockWorkStation')
-    elif data == '0':
-        print("Usuário presente.")
-    time.sleep(1)
-        
+def distancia(dist):
+    if dist > 80:
+        print("Longe")
+        sleep(0.5)
+        bloquearPc()
+        return 1
+    else:
+        print("Perto")
+        return 0
+
+print('Inicio do codigo')
+while True: #Loop para a conexão com o Arduino
+    try:  #Tenta se conectar, se conseguir, o loop se encerra
+        arduino = serial.Serial('COM10', 9600)
+        print('2')
+        print('Arduino conectado')
+        break
+    except Exception as e: print(e)
+        # pass
+print('Depois do while true')
+while True: #Loop principal
+    msg = str(arduino.readline()) #Lê os dados em formato de string
+    msg = msg[21:-8] #Fatia a string
+    msg = float(msg)
+    #print("Mensagem: {:.2f}".format(msg)) #Imprime a mensagem
+    #msg = float(msg)
+    distancia(msg)
+    if distancia(msg) == 1:
+        break
+    #print(msg,"cm.")
+    arduino.flush() #Limpa a comunicação
