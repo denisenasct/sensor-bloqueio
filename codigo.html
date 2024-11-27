@@ -39,15 +39,15 @@
         <code>
 //CÓDIGO SENSOR ULTRASSONICO PRO ARDUINO:
 
-const int trigPin = 5; //Emite o sinal sonoro
-const int echoPin = 4; //Capta as ondas sonoras refletidas
+const int trigPin = 5; 
+const int echoPin = 4; 
 int enviarpy;
 
 void setup() {
   
   Serial.begin(9600);
-  pinMode(trigPin, OUTPUT); //Definido Como saida pois ele emite o sinal sonoro
-  pinMode(echoPin, INPUT); //Definido como entrada pois capta as ondas sonoras refletidas
+  pinMode(trigPin, OUTPUT); 
+  pinMode(echoPin, INPUT); 
 }
 
 void loop() {
