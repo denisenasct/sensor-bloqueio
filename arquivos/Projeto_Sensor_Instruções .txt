@@ -36,82 +36,96 @@ O sistema utiliza um sensor ultrassônico para detectar a distância do usuário
 
 ---
 
-# Código Fonte em C++ (IDE Arduino)
+//CÓDIGO SENSOR ULTRASSONICO PRO ARDUINO:
 
-```cpp
-const int trigPin = 5; // Pino para emitir o sinal ultrassônico
-const int echoPin = 4; // Pino para captar o sinal refletido
+const int trigPin = 5; //Emite o sinal sonoro
+const int echoPin = 4; //Capta as ondas sonoras refletidas
 int enviarpy;
 
 void setup() {
+  // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  pinMode(trigPin, OUTPUT); //Definido Como saida pois ele emite o sinal sonoro
+  pinMode(echoPin, INPUT); //Definido como entrada pois capta as ondas sonoras refletidas
 }
 
 void loop() {
-  // Emissão do sinal ultrassônico
+  // put your main code here, to run repeatedly:
+
+  //Enviando pulso ultrassonico:
   digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
+  delayMicroseconds(1000);
   digitalWrite(trigPin, HIGH);
-  delayMicroseconds(5);
-  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2); 
+  //digitalWrite(trigPin, LOW);
 
-  // Cálculo da distância
+  //Leitura do tempo de retorno do pulso:
   long duracao = pulseIn(echoPin, HIGH);
-  float distancia = duracao * 0.034 / 2;
 
-  // Lógica de ativação do sistema
+  //Calcula a distancia em cm:
+  float distancia = duracao * 0.34/2;
+  
   if (distancia > 80) {
-    enviarpy = 1;
+    int enviarpy = 1 ;
     Serial.print(enviarpy);
-  } else {
-    enviarpy = 0;
+  }
+  else {
+    int enviarpy = 0;
     Serial.print(enviarpy);
   }
 
+
+
+  //Imprime a distancia no monitor serial:
   Serial.print("Distância: ");
   Serial.print(distancia);
-  Serial.println(" cm.");
 
-  delay(500);
+  delay(500); // Pequena pausa antes da próxima leitura
+
 }
-```
-
----
 
 # Código em Python para Integração
 
 Este código Python lê os dados enviados pelo Arduino via porta serial e executa uma ação (como bloquear a tela) quando a distância detectada pelo sensor ultrassônico atinge um valor específico.
 
-```python
+import subprocess
 import serial
-import os
-import time
+from time import sleep
 
-# Configuração da porta serial
-arduino = serial.Serial('COM3', 9600)  # Substitua 'COM3' pela porta correta
+def bloquearPc():
+    subprocess.run("rundll32.exe user32.dll,LockWorkStation", shell=True)
 
-def bloquear_tela():
-    print("Bloqueando a tela...")
-    if os.name == 'nt':
-        os.system("rundll32.exe user32.dll,LockWorkStation")
+def distancia(dist):
+    if dist > 80:
+        print("Longe")
+        sleep(0.5)
+        bloquearPc()
+        return 1
     else:
-        os.system("gnome-screensaver-command -l")
+        print("Perto")
+        return 0
 
-try:
-    while True:
-        if arduino.in_waiting > 0:
-            dados = arduino.readline().decode('utf-8').strip()
-            print(f"Dados recebidos: {dados}")
-            if dados == '1':
-                bloquear_tela()
-            time.sleep(1)
-except KeyboardInterrupt:
-    print("Encerrando...")
-    arduino.close()
-```
-
+print('Inicio do codigo')
+while True: #Loop para a conexão com o Arduino
+    try:  #Tenta se conectar, se conseguir, o loop se encerra
+        arduino = serial.Serial('COM10', 9600)
+        print('2')
+        print('Arduino conectado')
+        break
+    except Exception as e: print(e)
+        # pass
+print('Depois do while true')
+while True: #Loop principal
+    msg = str(arduino.readline()) #Lê os dados em formato de string
+    msg = msg[21:-8] #Fatia a string
+    msg = float(msg)
+    #print("Mensagem: {:.2f}".format(msg)) #Imprime a mensagem
+    #msg = float(msg)
+    distancia(msg)
+    if distancia(msg) == 1:
+        break
+    #print(msg,"cm.")
+    arduino.flush() #Limpa a comunicação
 # Configuração
 1. Instale o Python 3.12 ou superior.
 2. Instale a biblioteca `pyserial` executando:
