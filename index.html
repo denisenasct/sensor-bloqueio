@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <!-- Link para o CSS atualizado -->
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/global.css" />
     <link
@@ -12,6 +13,7 @@
     />
   </head>
   <body>
+    <!-- Cabeçalho -->
     <header class="header">
       <div class="header-logo">
         <img src="./img/cesar.png" alt="Logo da Faculdade" />
@@ -29,7 +31,7 @@
       </nav>
     </header>
 
-    <!-- A imagem será aplicada como fundo aqui -->
+    <!-- Seção hero com imagem de fundo -->
     <section
       class="hero"
       style="
@@ -49,9 +51,10 @@
     >
       <h1>Bem-vindo ao Nosso Projeto</h1>
       <p>Explore soluções inovadoras em Arduino para o futuro</p>
-      <button onclick="scrollToSection()">Saiba Mais</button>
+      <a class="saiba-mais-btn" href="#about">Saiba Mais</a>
     </section>
 
+    <!-- Seção sobre o projeto -->
     <section class="section" id="about">
       <h2>Sobre o Projeto</h2>
       <p>
@@ -61,10 +64,12 @@
       </p>
     </section>
 
+    <!-- Rodapé -->
     <footer>
       <p>&copy; 2024 Cesar School. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Script para rolagem suave -->
     <script>
       function scrollToSection() {
         document.getElementById("about").scrollIntoView({ behavior: "smooth" });
@@ -72,4 +77,3 @@
     </script>
   </body>
 </html>
-
