@@ -28,13 +28,7 @@ O sistema utiliza um sensor ultrassônico para detectar a distância do usuário
 | TRIG           | Pino Digital 5     |
 | ECHO           | Pino Digital 4     |
 
-# Conexões do LED (opcional):
-| Pino do LED | Conexão no Arduino |
-|-------------|---------------------|
-| Anodo (+)   | Pino Digital 13 (via resistor de 330Ω) |
-| Catodo (-)  | GND                |
 
----
 
 //CÓDIGO SENSOR ULTRASSONICO PRO ARDUINO:
 
