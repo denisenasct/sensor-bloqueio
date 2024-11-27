@@ -33,16 +33,102 @@
     <main class="container">
       <h2>Passo a Passo para Montagem do Projeto</h2>
 
-      <!-- Passos do projeto omitidos para clareza -->
-
-      <!-- Seção de vídeo tutorial corrigida -->
       <section class="passo">
-        <h3>8. Vídeo Tutorial</h3>
+        <h3>1. Reunir os Materiais e Verificar Conexões do Sensor Ultrassônico</h3>
+        <p>Certifique-se de ter todos os componentes necessários para o projeto.</p>
+        <h4>Lista de Materiais:</h4>
+        <ul>
+          <li>1 Placa Arduino (UNO)</li>
+          <li>1 Sensor Ultrassônico</li>
+          <li>1 Protoboard</li>
+          <li>Cabos Jumper</li>
+          <li>1 Resistor de 330Ω</li>
+          <li>Fonte de alimentação USB para o Arduino</li>
+          <li>Computador com IDE Arduino instalada</li>
+        </ul>
+        <img src="./img/passo1.jpg" alt="Reunir os Materiais" />
+      </section>
+
+      <section class="passo">
+        <h3>2. Conectar a Protoboard ao Arduino</h3>
         <p>
-          Assista ao vídeo tutorial abaixo, que será atualizado conforme nosso projeto.
+          Ligue os terminais de alimentação da protoboard ao Arduino. Verifique
+          se todas as conexões estão firmes e nos pinos corretos.
         </p>
+        <img src="./img/passoi.jpg" alt="Conexão com o Computador" />
+      </section>
+
+      <section class="passo">
+        <h3>3. Montagem do Sensor Ultrassônico</h3>
+        <p>
+          Fixe o sensor ultrassônico na protoboard e conecte os cabos conforme o
+          esquema do projeto.
+        </p>
+        <img src="./img/passo2.jpg" alt="Montagem do Sensor" />
+      </section>
+
+      <section class="passo">
+        <h3>4. Conexão com o Computador</h3>
+        <p>
+          Conecte o Arduino ao computador via cabo USB e abra o software de
+          monitoramento.
+        </p>
+        <img src="./img/passo3.jpg" alt="Conexão com o Computador" />
+      </section>
+
+      <section class="passo">
+        <h3>5. Configurar a IDE Arduino e Carregar o Código</h3>
+        <ul>
+          <li>
+            Instale a
+            <a href="https://www.arduino.cc/en/software" target="_blank">IDE Arduino</a>.
+          </li>
+          <li>Configure a porta COM correspondente ao seu Arduino.</li>
+          <li>Selecione a placa correta (UNO) no menu "Ferramentas".</li>
+          <li>Copie o código abaixo na IDE Arduino e faça o upload.</li>
+        </ul>
+        <pre><code>
+const int trigPin = 5;
+const int echoPin = 4;
+int enviarpy;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, LOW);
+
+  long duracao = pulseIn(echoPin, HIGH);
+  float distancia = duracao * 0.034 / 2;
+
+  if (distancia > 80) {
+    enviarpy = 1;
+    Serial.print(enviarpy);
+  } else {
+    enviarpy = 0;
+    Serial.print(enviarpy);
+  }
+
+  Serial.print("Distância: ");
+  Serial.print(distancia);
+  Serial.println(" cm.");
+
+  delay(500);
+}
+        </code></pre>
+      </section>
+
+      <section class="passo">
+        <h3>6. Vídeo Tutorial</h3>
+        <p>Assista ao vídeo tutorial abaixo:</p>
         <div class="tutorial-section">
-          <h3>Vídeo Tutorial</h3>
           <iframe
             width="560"
             height="315"
@@ -66,4 +152,5 @@
     </footer>
   </body>
 </html>
+
 
