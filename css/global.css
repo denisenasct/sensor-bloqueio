@@ -23,21 +23,22 @@ body {
 }
 
 .header-logo {
-  margin-bottom: 10px; /* Espaçamento entre o logo e o menu */
+  margin-right: 20px;
 }
 
 .header-logo img {
   height: 50px;
-  max-width: 100%; /* Garante adaptação em telas menores */
+  max-width: 100%;
 }
 
+/* Menu de navegação horizontal */
 .cascading-menu ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column; /* Itens na vertical */
-  gap: 10px; /* Espaçamento entre itens */
+  display: flex; /* Alinha os itens horizontalmente */
+  gap: 20px; /* Espaçamento entre itens */
+  align-items: center; /* Centraliza verticalmente os itens */
 }
 
 .cascading-menu a {
@@ -160,6 +161,16 @@ button:hover {
 
 /* Responsividade para telas médias (tablets, 768px ou menores) */
 @media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Itens na vertical em tablets */
+    align-items: center;
+  }
+
+  .cascading-menu ul {
+    flex-direction: column; /* Alinha verticalmente os itens */
+    gap: 10px; /* Espaçamento menor entre itens */
+  }
+
   .main-image {
     background-size: cover; /* Ajusta para cobrir em telas médias */
     min-height: 50vh; /* Reduz a altura para dispositivos médios */
@@ -186,6 +197,15 @@ button:hover {
 
 /* Responsividade para telas pequenas (celulares, 480px ou menores) */
 @media (max-width: 480px) {
+  .header {
+    padding: 10px; /* Reduz o espaçamento no cabeçalho */
+  }
+
+  .cascading-menu ul {
+    flex-direction: column; /* Alinha verticalmente em celulares */
+    gap: 8px; /* Reduz o espaçamento ainda mais */
+  }
+
   .main-image {
     background-size: contain; /* Mostra toda a imagem sem cortes */
     min-height: 40vh; /* Altura menor para telas pequenas */
@@ -209,5 +229,7 @@ button:hover {
     padding: 6px 10px;
     margin: 10px auto;
   }
+}
+
 
 
