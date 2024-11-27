@@ -37,7 +37,7 @@ const int echoPin = 4; //Capta as ondas sonoras refletidas
 int enviarpy;
 
 void setup() {
-  // put your setup code here, to run once:
+ 
   Serial.begin(9600);
   pinMode(trigPin, OUTPUT); //Definido Como saida pois ele emite o sinal sonoro
   pinMode(echoPin, INPUT); //Definido como entrada pois capta as ondas sonoras refletidas
@@ -80,46 +80,6 @@ void loop() {
 
 # Código em Python para Integração
 
-Este código Python lê os dados enviados pelo Arduino via porta serial e executa uma ação (como bloquear a tela) quando a distância detectada pelo sensor ultrassônico atinge um valor específico.
-
-import subprocess
-import serial
-from time import sleep
-
-def bloquearPc():
-    subprocess.run("rundll32.exe user32.dll,LockWorkStation", shell=True)
-
-def distancia(dist):
-    if dist > 80:
-        print("Longe")
-        sleep(0.5)
-        bloquearPc()
-        return 1
-    else:
-        print("Perto")
-        return 0
-
-print('Inicio do codigo')
-while True: #Loop para a conexão com o Arduino
-    try:  #Tenta se conectar, se conseguir, o loop se encerra
-        arduino = serial.Serial('COM10', 9600)
-        print('2')
-        print('Arduino conectado')
-        break
-    except Exception as e: print(e)
-        # pass
-print('Depois do while true')
-while True: #Loop principal
-    msg = str(arduino.readline()) #Lê os dados em formato de string
-    msg = msg[21:-8] #Fatia a string
-    msg = float(msg)
-    #print("Mensagem: {:.2f}".format(msg)) #Imprime a mensagem
-    #msg = float(msg)
-    distancia(msg)
-    if distancia(msg) == 1:
-        break
-    #print(msg,"cm.")
-    arduino.flush() #Limpa a comunicação
 # Configuração
 1. Instale o Python 3.12 ou superior.
 2. Instale a biblioteca `pyserial` executando:
@@ -129,6 +89,69 @@ while True: #Loop principal
 3. Ajuste a porta serial (`COM3`) conforme necessário.
 
 ---
+
+Este código Python lê os dados enviados pelo Arduino via porta serial e executa uma ação (como bloquear a tela) quando a distância detectada pelo sensor ultrassônico atinge um valor específico.
+
+import serial
+import datetime
+import subprocess
+from time import sleep
+import sys
+
+def cronometro_regressivo(segundos):
+    
+    start_time = datetime.datetime.now()
+
+    while segundos > 0:
+        tempo_restante = datetime.timedelta(seconds=segundos)
+        print(f"TEMPO RESTANTE: {tempo_restante}.")
+        print()
+        sleep(1)
+        segundos -= 1
+
+    print("TEMPO ESGOTADO!")
+    sleep(0.5)
+    subprocess.run("rundll32.exe user32.dll,LockWorkStation", shell=True)
+    sys.exit()
+
+
+def distancia(dist):
+
+    if dist > 80:
+        print("Longe")
+        sleep(0.5)
+        cronometro_regressivo(30)
+        return 1
+    else:
+        print("Perto")
+        return 0
+
+
+print("Inicio do Projeto!")
+
+def main():
+
+    while True:
+        try:  
+            arduino = serial.Serial('COM10', 9600)
+            print('Arduino CONECTADO!')
+            break
+        except Exception as e: 
+            print(e)
+            sys.exit()
+    
+    while True:
+        msg = str(arduino.readline())
+        msg = msg[21:-8] 
+        msg = float(msg)
+        distancia(msg)
+        if distancia(msg) == 1:
+            sys.exit()
+        arduino.flush()
+
+
+main()
+
 
 #Passo a Passo para Montagem
 
